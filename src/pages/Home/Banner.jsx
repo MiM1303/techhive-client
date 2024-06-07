@@ -9,8 +9,8 @@ import "../Home/Banner.css"
 
 const Banner = () => {
     return (
-        // <Carousel autoPlay="true" infiniteLoop="true" interval={2000} stopOnHover>
-        <Carousel>
+        <Carousel autoPlay="true" infiniteLoop="true" interval={2000} stopOnHover>
+        {/* <Carousel> */}
                 <div className="relative " >
                     <img className="bg-center image-container bg-contain z-2 " src={img1} />
                     <div className="absolute text-white top-1/4 right-60 z-10 space-y-10">
