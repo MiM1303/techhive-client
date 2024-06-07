@@ -9,21 +9,47 @@ import "../Home/Banner.css"
 
 const Banner = () => {
     return (
+        // <Carousel autoPlay="true" infiniteLoop="true" interval={2000} stopOnHover>
         <Carousel>
-                <div>
-                    <img className="bg-bottom bg-contain " src={img1} />
+                <div className="relative " >
+                    <img className="bg-center image-container bg-contain z-2 " src={img1} />
+                    <div className="absolute text-white top-1/4 right-60 z-10 space-y-10">
+                        <p className="text-4xl font-semibold">Find All Your Necessary</p>
+                        <p className="text-7xl  font-bold">Web Applications!</p>
+                        <p className="text-2xl font-semibold">Out of hundreds of top-quality products, <br />pick out the one best suited for your needs!</p>
+                    </div>
                 </div>
-                <div>
-                    <img className="bg-bottom bg-contain " src={img2} />
+                <div className="relative">
+                    <img className="bg-center image-container bg-contain z-2 " src={img4} />
+                    <div className="absolute text-white top-1/4 left-60 z-10 space-y-10">
+                        <p className="text-4xl font-semibold">Find All Your Necessary</p>
+                        <p className="text-7xl  font-bold">Softwares!</p>
+                        <p className="text-2xl font-semibold">Out of hundreds of top-quality products, <br />pick out the one best suited for your needs!</p>
+                    </div>
                 </div>
-                <div>
-                    <img className="bg-bottom bg-contain " src={img3} />
+                <div className="relative">
+                    <img className="bg-center image-container bg-contain z-2 " src={img3} />
+                    <div className="absolute text-white top-1/4 right-60 z-10 space-y-10">
+                        <p className="text-4xl font-semibold">Find All Your Necessary</p>
+                        <p className="text-7xl  font-bold">Gaming Tools!</p>
+                        <p className="text-2xl font-semibold">Out of hundreds of top-quality products, <br />pick out the one best suited for your needs!</p>
+                    </div>
                 </div>
-                <div>
-                    <img className="bg-bottom bg-contain " src={img4} />
+                <div className="relative">
+                    <img className="bg-center image-container bg-contain z-2 " src={img5} />
+                    <div className="absolute text-white top-1/4 left-60 z-10 space-y-10">
+                        <p className="text-4xl font-semibold">Find All Your Necessary</p>
+                        <p className="text-7xl  font-bold">AI Tools!</p>
+                        <p className="text-2xl font-semibold">Out of hundreds of top-quality products, <br />pick out the one best suited for your needs!</p>
+                    </div>
                 </div>
-                <div>
-                    <img className="bg-bottom bg-contain " src={img5} />
+                <div className="relative">
+                    <img className="bg-center image-container bg-contain z-2 " src={img2} />
+                    <div className="absolute text-white top-1/4 right-44 z-10 space-y-10">
+                        <p className="text-4xl font-semibold">Find All Your Necessary</p>
+                        <p className="text-7xl  font-bold">Mobile Applications!</p>
+                        <p className="text-2xl font-semibold">Out of hundreds of top-quality products, <br />pick out the one best suited for your needs!</p>
+                    </div>
                 </div>
             </Carousel>
     );

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png"
 
 const Navbar = () => {
@@ -46,7 +47,7 @@ const Navbar = () => {
 				</ul>
 			</div>
 			<div className="navbar-end">
-				<a className="btn bg-[#0CC0DF] text-white">Login</a>
+				<Link to="/"><button className="btn bg-[#0CC0DF] text-white">Login</button></Link>
 			</div>
 		</div>
 	);
