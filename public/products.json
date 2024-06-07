@@ -1,0 +1,75 @@
+[
+    {
+      "id": 1,
+      "product_image": "https://i.ibb.co/gWkfJ0D/todoist.png",
+      "product_name": "Todoist",
+      "product_tags": ["Productivity", "Task Management", "Mobile App"],
+      "external_links": null,
+      "timestamp": "2024-06-01",
+      "upvote_count": 0,
+      "description": "Todoist is a task management app that helps you organize and prioritize your tasks and projects.",
+      "status": "pending",
+      "featured": false
+    },
+    {
+      "id": 2,
+      "product_image": "https://i.ibb.co/PGyNtHh/loom.png",
+      "product_name": "Loom",
+      "product_tags": ["Video", "Communication", "Tool"],
+      "external_links": null,
+      "timestamp": "2024-06-05",
+      "upvote_count": 0,
+      "description": "Loom is a video messaging tool that helps you get your message across through instantly shareable videos.",
+      "status": "pending",
+      "featured": true
+    },
+    {
+      "id": 3,
+      "product_image": "https://i.ibb.co/RNmvS9r/miro.png",
+      "product_name": "Miro",
+      "product_tags": ["Collaboration", "Tool", "Web App"],
+      "external_links": null,
+      "timestamp": "2024-06-10",
+      "upvote_count": 0,
+      "description": "Miro is an online collaborative whiteboard platform that enables distributed teams to work effectively together.",
+      "status": "pending",
+      "featured": true
+    },
+    {
+      "id": 4,
+      "product_image": "https://i.ibb.co/kmzPLHH/trello.png",
+      "product_name": "Trello",
+      "product_tags": ["Project Management", "Productivity", "Web App"],
+      "external_links": null,
+      "timestamp": "2024-06-15",
+      "upvote_count": 0,
+      "description": "Trello is a visual tool for organizing your work and life. It helps you manage projects with boards, lists, and cards.",
+      "status": "pending",
+      "featured": false
+    },
+    {
+      "id": 5,
+      "product_image": "https://i.ibb.co/3djL9sz/slite.png",
+      "product_name": "Slite",
+      "product_tags": ["Collaboration", "Documentation", "Tool"],
+      "external_links": null,
+      "timestamp": "2024-06-20",
+      "upvote_count": 0,
+      "description": "Slite is a collaborative documentation tool that helps teams write, share, and manage information in one place.",
+      "status": "pending",
+      "featured": true
+    },
+    {
+      "id": 6,
+      "product_image": "https://i.ibb.co/mCkWyNk/bubble.png",
+      "product_name": "Bubble",
+      "product_tags": ["Web App", "Development", "No Code"],
+      "external_links": null,
+      "timestamp": "2024-06-25",
+      "upvote_count": 0,
+      "description": "Bubble is a no-code platform that allows you to build web applications without coding. Bring your ideas to life quickly and easily.",
+      "status": "pending",
+      "featured": true
+    }
+  ]
+  
