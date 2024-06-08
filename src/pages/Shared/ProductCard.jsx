@@ -35,7 +35,7 @@ const ProductCard = ({product}) => {
             })
             .then(res=>res.json())
             .then(data=>{
-                console.log(data);
+                // console.log(data);
                 setVoted(true);
             })
         }
