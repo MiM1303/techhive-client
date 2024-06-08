@@ -8,6 +8,8 @@ const Home = () => {
             <Banner></Banner>
             {/* FEATURED PRODUCTS SECTION */}
             <Featured></Featured>
+
+            
         </div>
     );
 };
