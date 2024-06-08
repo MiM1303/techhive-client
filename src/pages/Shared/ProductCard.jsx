@@ -1,12 +1,12 @@
 import { useContext, useState } from "react";
 import { BiSolidUpArrow } from "react-icons/bi";
 import { AuthContext } from "../../providers/AuthProvider";
-import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const ProductCard = ({product}) => {
     const {_id, product_name, product_image, product_tags, upvote_count, owner_email} = product;
-    const {user, loading} = useContext(AuthContext);
-    const [voted, setVoted] = useState(false);
+    const {user, loading, voted, setVoted} = useContext(AuthContext);
+    // const [voted, setVoted] = useState(false);
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -37,9 +37,6 @@ const ProductCard = ({product}) => {
             .then(data=>{
                 console.log(data);
                 setVoted(true);
-                // const classes = document.getElementById('upvote_btn').classList;
-                // console.log(classes);
-                // classes.add("disabled")
             })
         }
     }
@@ -51,20 +48,21 @@ const ProductCard = ({product}) => {
             <img className="max-w-72 rounded-3xl" src={product_image} alt="Movie"/>
         </figure>
         <div className="card-body my-auto">
-            <h2 className="card-title font-bold text-2xl mb-2">{product_name}</h2>
+            <h2 className="card-title font-bold text-2xl mb-2"><Link to={`/product/${_id}`}>{product_name}</Link></h2>
             <div className="flex gap-4  flex-wrap">
             {
                 product_tags.map(tag=><span key={_id} className="grid grid-cols-1 w-fit bg-[#98fbdd] font-semibold rounded-xl shadow-md py-1 px-3">{tag}</span>)
             }
-        </div>
+            </div>
             <div className="card-actions right-8 top-14 absolute justify-end border border-[#98fbdd] rounded-xl p-2  w-fit ">
                 <div className="flex gap-2 justify-center items-center">
-                    {/* <button onClick={handleVote} className={" " +(user.email===owner_email ? 'disabled:' : '')}> */}
+                    {/* if there is user check if user is product owner */}
                     {user?
-                        <button onClick={handleVote} id="upvote_btn" className={` ${user.email===owner_email? 'disabled' : 'bg-yellow-300'}`} >
+                        <button onClick={handleVote} id="upvote_btn" className={` ${user.email===owner_email? 'disabled' : ''}`} >
                             <BiSolidUpArrow className={`text-2xl ${user.email===owner_email? '':'hover:text-[#98fbdd]'} `}></BiSolidUpArrow>
                         </button>
                     :
+                    // user is null so redirect to login page
                         <button onClick={handleVote} >
                             <BiSolidUpArrow className="text-2xl hover:text-[#98fbdd]"></BiSolidUpArrow>
                         </button>

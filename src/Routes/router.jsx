@@ -9,6 +9,8 @@ import Demo from "../pages/Demo/Demo";
 import AddProduct from "../pages/AddProduct/AddProduct";
 import ProductDetails from "../pages/ProductDetails/ProductDetails";
 import Error404 from "../pages/Shared/Error404";
+import AllProducts from "../pages/AllProducts/AllProducts";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
     {
@@ -29,8 +31,13 @@ export const router = createBrowserRouter([
             element: <Registration></Registration>
         },
         {
-            path: "/product-details",
-            element: <ProductDetails></ProductDetails>
+            path: "/all-products",
+            element: <AllProducts></AllProducts>
+        },
+        {
+            path: "/product/:id",
+            element: <PrivateRoute><ProductDetails></ProductDetails></PrivateRoute>,
+            loader: ({params}) => fetch(`http://localhost:5000/products/${params.id}`)
         },
         {
           path: "/demo",
