@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { BiSolidUpArrow } from "react-icons/bi";
 import { AuthContext } from "../../providers/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -26,7 +26,7 @@ const ProductCard = ({product}) => {
 
         // update upvote_count if used has not voted yet
         if(!voted){
-            fetch(`http://localhost:5000/products/${_id}`, {
+            fetch(`http://localhost:5000/products/upvote/${_id}/`, {
                 method: "PATCH",
                 headers: {
                     'content-type': 'application/json'

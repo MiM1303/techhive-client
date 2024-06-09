@@ -48,7 +48,7 @@ const ProductDetails = () => {
         if(!voted){
             setAction('upvote');
             console.log('upvoted')
-            fetch(`http://localhost:5000/products/${_id}?action=${action}`, {
+            fetch(`http://localhost:5000/products/upvote/${_id}`, {
                 method: "PATCH",
                 headers: {
                     'content-type': 'application/json'
@@ -64,10 +64,9 @@ const ProductDetails = () => {
     }
 
     const handleReport = () =>{
-        setAction('report');
-        console.log('reported')
-        if(!reported){
-            fetch(`http://localhost:5000/products/${_id}?action=${action}`, {
+        
+            console.log('report')
+            fetch(`http://localhost:5000/products/report/${_id}/`, {
                 method: "PATCH",
                 headers: {
                     'content-type': 'application/json'
@@ -78,7 +77,7 @@ const ProductDetails = () => {
             .then(data=>{
                 console.log(data);
             })
-        }
+        
     }
 
     // ADD REVIEW
