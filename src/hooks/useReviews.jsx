@@ -11,7 +11,7 @@ const useReviews = (id) =>{
             setLoading(false);
         })
     })
-    return [reviews, loading];
+    return [reviews, setReviews, loading];
 
 }
 

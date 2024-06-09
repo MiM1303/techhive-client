@@ -1,7 +1,7 @@
 import { Link, useLoaderData, useLocation, useNavigate } from "react-router-dom";
 import "../Home/Banner.css"
 import { BiSolidUpArrow } from "react-icons/bi";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider"
 import useReviews from "../../hooks/useReviews";
 import { FaUserCircle } from "react-icons/fa";
@@ -9,18 +9,27 @@ import { Rating } from '@smastrom/react-rating'
 import '@smastrom/react-rating/style.css'
 import { Controller, useForm } from 'react-hook-form';
 import SectionTitle from "../Shared/SectionTitle";
+import { toast } from "react-toastify";
 
 
 const ProductDetails = () => {
     const product = useLoaderData();
-    const { _id, product_name, product_image, description, product_tags, upvote_count, external_links, owner_email, reported } = product;
+    const { _id, product_name, product_image, description, product_tags, upvote_count, external_links, owner_email, owner_name, owner_image, reported } = product;
     const {user, loading, voted, setVoted} = useContext(AuthContext);
     // const [voted, setVoted] = useState(false);
     const navigate = useNavigate();
     const location = useLocation();
     const [action, setAction] = useState('');
 
-    const [reviews] = useReviews(_id);
+    // const [reviews] = useReviews(_id);
+    const [productReviews, setProductReviews] = useState([])
+
+    useEffect(()=>{
+        fetch(`http://localhost:5000/reviews/${_id}`)
+        .then(res=>res.json())
+        .then(data=>setProductReviews(data))
+    }, [])
+
     const {
         register,
         handleSubmit,
@@ -29,7 +38,6 @@ const ProductDetails = () => {
       } = useForm({
         mode: 'onBlur',
         defaultValues: {
-          name: '',
           rating: 0,
         },
       });
@@ -83,55 +91,38 @@ const ProductDetails = () => {
 
     // ADD REVIEW
     const onSubmit = (review) => {
-        // if(user && user.email){
-        //     review.user_img_url = user.photoURL;
-        //     review.name = user.displayName;
-        //     // console.log(data);
+        if(user && user.email){
+            review.reviewer_image = user.photoURL;
+            review.reviewer_name = user.displayName;
+            review.product_Id = _id;
+            console.log(review);
             
-        //     //send review data to server
-        //     fetch('https://meraki-server.vercel.app/reviews', {
-        //         method: 'POST',
-        //         headers: {
-        //             'content-type': 'application/json'
-        //         },
-        //         body: JSON.stringify(review)
-        //     })
-        //     .then(res=>res.json())
-        //     .then(data=>{
-        //         // console.log(data);
+            // send review data to server
+            fetch('http://localhost:5000/reviews', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(review)
+            })
+            .then(res=>res.json())
+            .then(data=>{
+                console.log(data);
                 
-        //         if(data.insertedId)
-        //         {
-        //             Swal.fire({
-        //                 title: 'Success!',
-        //                 text: `Review added successfully! Thank you for your feedback!!`,
-        //                 icon: 'success',
-        //                 confirmButtonText: 'Close'
-        //             })
-        //             console.log(review);
-        //             setReviews([review, ...reviews]);
-        //         }
+                if(data.insertedId)
+                {
+                    toast.success("Added review successfully!");
+                    console.log(review);
+                    setProductReviews([review, ...productReviews]);
+                }
                 
-        //     })
-        // }
-        // else
-		// {
-		// 	Swal.fire({
-		// 		title: "You are not logged in",
-		// 		text: "Please login to add food to cart!",
-		// 		icon: "warning",
-		// 		showCancelButton: true,
-		// 		confirmButtonColor: "#3085d6",
-		// 		cancelButtonColor: "#d33",
-		// 		confirmButtonText: "Login"
-		// 	}).then((result) => {
-		// 		if (result.isConfirmed) {
-        //             console.log( location.pathname);
-		// 			// send user to login page
-		// 			navigate('/login', {state: location.pathname });
-		// 		}
-		// 	});
-		// }
+                
+            })
+        }
+        else
+		{
+			toast.error("Something went wrong. Please try again later.");
+		}
     }
 
   return (
@@ -192,34 +183,40 @@ const ProductDetails = () => {
                     <div className="hero-content md:p-0  flex-col md:w-full lg:w-full mb-2 ">
                         <div className="card shrink-0  shadow-2xl bg-[#EDFAF6] md:w-3/4">
                             <form onSubmit={handleSubmit(onSubmit)} className=" card-body rounded-xl  md:p-6 bg-[#EDFAF6]">
+                                {/* disabled username and image */}
+                                <input type="image" src={`${user.photoURL}`} className="w-14 rounded-full" alt="" disabled/>
+                                <label className="label">
+                                        <span className="label-text">Your Name</span>
+                                </label>
+                                <input type="text" placeholder={`${user.displayName}`} className="input input-bordered w-full text-black" disabled />
                                 <div className="form-control mb-3">
                                     <label className="label">
                                         <span className="label-text">Review</span>
                                     </label>
-                                    <input type="text" {...register("review", { required: true })} placeholder="Write your review here..." className="input input-bordered"/>
+                                    <input type="text" {...register("review_des", { required: true })} placeholder="Write your review here..." className="input input-bordered"/>
                                     {errors.review && <span className="mt-2 text-[#FF5A3D]">This field is required</span>}
                                 </div>
                                 <div>
-                                <label id="rating_label" className="label">
-                                        <span className="label-text">Rating</span>
-                                </label>
-                                    <Controller
-                                    control={control}
-                                    name="rating"
-                                    rules={{
-                                        validate: (rating) => rating > 0,
-                                    }}
-                                    render={({ field: { onChange, onBlur, value } }) => (
-                                        <Rating
-                                        value={value}
-                                        isRequired
-                                        onChange={onChange}
-                                        visibleLabelId="rating_label"
-                                        onBlur={onBlur}
-                                        style={{ maxWidth: 180 }}
+                                    <label id="rating_label" className="label">
+                                            <span className="label-text">Rating</span>
+                                    </label>
+                                        <Controller
+                                        control={control}
+                                        name="rating"
+                                        rules={{
+                                            validate: (rating) => rating > 0,
+                                        }}
+                                        render={({ field: { onChange, onBlur, value } }) => (
+                                            <Rating
+                                            value={value}
+                                            isRequired
+                                            onChange={onChange}
+                                            visibleLabelId="rating_label"
+                                            onBlur={onBlur}
+                                            style={{ maxWidth: 180 }}
+                                            />
+                                        )}
                                         />
-                                    )}
-                                    />
                                     {errors.review && <span className="mt-5 text-[#FF5A3D]">Rating is required</span>}
                                 </div>
                                 <div className="form-control mt-2">
@@ -234,15 +231,29 @@ const ProductDetails = () => {
 
             {/* REVIEW SLIDER */}
         <div className="flex flex-col mt-4 md:mt-14 lg:mt-16 justify-center items-center mb-16">
-                <div className="lg:carousel md:carousel carousel-center  md:w-[595px] lg:w-fit md:p-5 lg:p-4 space-x-4 rounded-box hidden  bg-slate-600 ">
+
+            {/* <div className="lg:carousel md:carousel carousel-center w-2/3 p-4 space-x-4 rounded-box hidden bg-[#EBB22F] "> */}
+                {/* LARGE DEVICE */}
+                    {/* {
+                        productReviews.map(rev=> <div key={rev.id} className="carousel-item md:w-[545px] lg:w-[568px] rounded-box flex flex-col gap-6 text-center p-20 bg-[linear-gradient(45deg,rgba(19,19,24,0.50),rgba(19,19,24,0.50)),url('https://i.ibb.co/V9z4RgS/food-bg-1-min.jpg')] bg-cover"> 
+                        <img src={rev.reviewer_image} className="rounded-full w-20 mx-auto" alt="" />
+                        <h2 className="text-[26px] font-bold ">{rev.reviewer_name}</h2>
+                        <p className=" text-lg leading-relaxed"><span className="text-2xl font-bold ">"</span>{rev.review_des}<span className="text-2xl font-bold">"</span></p> 
+                        <Rating style={{ maxWidth: 160 }} value={rev.rating} readOnly className="mx-auto"/>
+                        </div> )
+                        
+                    } */}
+                {/* </div> */}
+
+                <div className="lg:carousel md:carousel carousel-center  md:w-[595px] lg:w-[960px] md:p-5 lg:p-4 space-x-4 rounded-box hidden  bg-slate-600 ">
                 {/* LARGE DEVICE */}
                     {
-                        reviews.map(rev=> <div key={rev._id}
+                        productReviews.map(rev=> <div key={rev._id}
                             style={{
                                 backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url(${product_image})`,
                                 
                             }}
-                            className={`text-black carousel-item md:w-[500px] md:min-h-fit lg:w-[568px] rounded-box flex flex-col gap-6 text-center p-8  bg-cover bg-center`}> 
+                            className={`carousel-item text-black  md:w-[500px] md:min-h-fit lg:w-[568px] rounded-box flex flex-col gap-6 text-center p-8  bg-cover bg-center`}> 
                         <img src={rev.reviewer_image} className="rounded-full w-20 mx-auto" alt="" />
                         <h2 className="text-[26px] font-bold ">{rev.reviewer_name}</h2>
                         <p className=" text-lg leading-relaxed"><span className="text-2xl font-bold ">"</span>{rev.review_des}<span className="text-2xl font-bold">"</span></p> 
@@ -255,7 +266,7 @@ const ProductDetails = () => {
                 <div className="md:hidden lg:hidden carousel-center w-11/12 p-4 space-x-4 rounded-box  bg-slate-600 ">
                     <div className="h-[320px] w-[320px] carousel carousel-vertical rounded-box md:hidden lg:hidden">
                     {
-                        reviews.map(rev=> <div key={rev._id} 
+                        productReviews.map(rev=> <div key={rev._id} 
                             style={{
                                 backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url(${product_image})`,
                                 
