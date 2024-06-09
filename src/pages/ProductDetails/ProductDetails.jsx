@@ -8,6 +8,7 @@ import { FaUserCircle } from "react-icons/fa";
 import { Rating } from '@smastrom/react-rating'
 import '@smastrom/react-rating/style.css'
 import { Controller, useForm } from 'react-hook-form';
+import SectionTitle from "../Shared/SectionTitle";
 
 
 const ProductDetails = () => {
@@ -137,46 +138,46 @@ const ProductDetails = () => {
     <div>
         {/* PRODUCT DETIALS */}
         <div
-            className="hero h-[600px]  w-1/2 mx-auto my-20 "
+            className="hero  h-[300px] lg:h-[600px] lg:w-1/2 mx-auto my-20 "
             style={{
                 backgroundImage:
                 `url(${product_image})`,
             }}
             >
             <div className="hero-overlay detail-bg"></div>
-            <div className="hero-content text-center text-neutral-100  p-14">
+            <div className="hero-content text-center text-neutral-100  md:p-14">
                 <div className="">
-                    <div className="hero-content text-left gap-14 flex-col lg:flex-row">
-                        <Link to={`${external_links}`}><img src={product_image} className="max-w-xs rounded-lg shadow-2xl" /></Link>
+                    <div className="hero-content text-left md:gap-14 flex-col lg:flex-row">
+                        <Link to={`${external_links}`}><img src={product_image} className="w-1/3 lg:max-w-xs rounded-lg shadow-2xl mx-auto" /></Link>
                         <div>
-                        <div className="flex justify-between items-center">
-                            <h1 className="text-5xl font-bold">{product_name}</h1>
+                        <div className="flex flex-col gap-2 md:flex-row justify-between items-center">
+                            <h1 className="text-3xl md:text-5xl font-bold">{product_name}</h1>
                             <div className="flex  justify-center items-center mr-4">
-                                <div className="flex gap-2 justify-center items-center mr-4 bg-green-500 py-1 px-2 rounded-2xl">
+                                <div className="flex gap-2 justify-center items-center mr-4 bg-green-500  px-1 md:py-1 md:px-2 rounded-lg md:rounded-2xl">
                                     <p className="text-lg font-bold">{upvote_count}</p>
                                     {/* if there is user check if user is product owner */}
                                     {user?
                                         <button onClick={handleVote} id="upvote_btn" className={` ${user.email===owner_email? 'disabled' : ''}`} >
-                                            <BiSolidUpArrow className={`text-2xl ${user.email===owner_email? '':'hover:text-[#98fbdd]'} `}></BiSolidUpArrow>
+                                            <BiSolidUpArrow className={`text-lg md:text-2xl  ${user.email===owner_email? '':'hover:text-[#98fbdd]'} `}></BiSolidUpArrow>
                                         </button>
                                     :
                                     // user is null so redirect to login page
                                         <button onClick={handleVote} >
-                                            <BiSolidUpArrow className="text-2xl hover:text-[#98fbdd]"></BiSolidUpArrow>
+                                            <BiSolidUpArrow className="text-lg md:text-2xl hover:text-[#98fbdd]"></BiSolidUpArrow>
                                         </button>
                                     }
                                 </div>
-                                <button onClick={handleReport} className="bg-red-500 border-none text-white rounded-2xl py-2 px-3 text-sm font-bold">Report</button>
+                                <button onClick={handleReport} className="bg-red-500 border-none text-white rounded-lg md:rounded-2xl py-1 md:py-2 px-2 md:px-3 text-sm font-bold">Report</button>
                             </div>
                         </div>
-                        <p className="py-6 text-lg font-semibold">{description}</p>
+                        <p className="py-6 text-base md:text-lg font-semibold">{description}</p>
                         <div className="flex gap-4  flex-wrap">
                             {
-                                product_tags.map(tag=><span key={_id} className="grid grid-cols-1 w-fit  font-semibold rounded-xl shadow-md py-1 px-3 bg-[#EEF2FF] text-black">{tag}</span>)
+                                product_tags.map(tag=><span key={_id} className="grid grid-cols-1 w-fit text-sm font-semibold rounded-xl shadow-md py-1 px-2 md:px-3 bg-[#EEF2FF] text-black">{tag}</span>)
                             }
                         </div>
                         <div className="my-5">
-                            <Link to={`${external_links}`} className="text-lg font-semibold">Check out {product_name} here!</Link>
+                            <Link to={`${external_links}`} className=" text-base md:text-lg font-semibold">Check out {product_name} here!</Link>
                         </div>
                         
                         </div>
@@ -185,12 +186,12 @@ const ProductDetails = () => {
             </div>
         </div>
         {/* REVIEW FORM AND SLIDER */}
-        <div>
+        <div className="mt-64 md:mt-[380px] lg:mt-0">
             {/* REVIEW FORM */}
-            <div className="hero mt-16 lg:w-1/2 mx-auto">
-                    <div className="hero-content  flex-col md:w-full lg:w-[800px] mb-2 ">
-                        <div className="card shrink-0  shadow-2xl bg-[#FCE9DA] w-3/4">
-                            <form onSubmit={handleSubmit(onSubmit)} className="card-body rounded-xl p-6 bg-[#fbece0]">
+            <div className="hero md:mt-16 w-full md:w-full lg:w-full mx-auto">
+                    <div className="hero-content md:p-0  flex-col md:w-full lg:w-full mb-2 ">
+                        <div className="card shrink-0  shadow-2xl bg-[#EDFAF6] md:w-3/4">
+                            <form onSubmit={handleSubmit(onSubmit)} className=" card-body rounded-xl  md:p-6 bg-[#EDFAF6]">
                                 <div className="form-control mb-3">
                                     <label className="label">
                                         <span className="label-text">Review</span>
@@ -222,16 +223,18 @@ const ProductDetails = () => {
                                     {errors.review && <span className="mt-5 text-[#FF5A3D]">Rating is required</span>}
                                 </div>
                                 <div className="form-control mt-2">
-                                    <button className="btn bg-[#cb946a] button-styles  text-lg text-white">Add</button>
+                                    <button className="btn bg-[#b6f8e4] text-base font-semibold text-black hover:bg-[#98fbdd] ">Add</button>
                                 </div>
                             </form>
                         </div>
                     </div>
                 </div>
 
+        <SectionTitle heading="Reviews" subHeading={`Swipe to check out some reviews from our users for ${product_name}!`} ></SectionTitle>
+
             {/* REVIEW SLIDER */}
         <div className="flex flex-col mt-4 md:mt-14 lg:mt-16 justify-center items-center mb-16">
-                <div className="lg:carousel md:carousel carousel-center w-fit p-4 space-x-4 rounded-box hidden  bg-slate-600 ">
+                <div className="lg:carousel md:carousel carousel-center  md:w-[595px] lg:w-fit md:p-5 lg:p-4 space-x-4 rounded-box hidden  bg-slate-600 ">
                 {/* LARGE DEVICE */}
                     {
                         reviews.map(rev=> <div key={rev._id}
@@ -239,24 +242,35 @@ const ProductDetails = () => {
                                 backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url(${product_image})`,
                                 
                             }}
-                            className={`text-black carousel-item md:w-[545px] lg:w-[568px] rounded-box flex flex-col gap-6 text-center p-20 bg-cover bg-center`}> 
-                        <img src={rev.reviewer_image} className="rounded-full w-24 mx-auto" alt="" />
-                        <h2 className="text-3xl font-bold ">{rev.reviewer_name}</h2>
-                        <p className=" text-xl leading-relaxed"><span className="text-2xl font-bold ">"</span>{rev.review_des}<span className="text-2xl font-bold">"</span></p> 
-                        <Rating style={{ maxWidth: 180 }} value={rev.rating} readOnly className="mx-auto"/>
+                            className={`text-black carousel-item md:w-[500px] md:min-h-fit lg:w-[568px] rounded-box flex flex-col gap-6 text-center p-8  bg-cover bg-center`}> 
+                        <img src={rev.reviewer_image} className="rounded-full w-20 mx-auto" alt="" />
+                        <h2 className="text-[26px] font-bold ">{rev.reviewer_name}</h2>
+                        <p className=" text-lg leading-relaxed"><span className="text-2xl font-bold ">"</span>{rev.review_des}<span className="text-2xl font-bold">"</span></p> 
+                        <Rating style={{ maxWidth: 160 }} value={rev.rating} readOnly className="mx-auto"/>
                         </div> )
                         
                     }
                 </div>
                 {/* SMALL DEVICE */}
-                <div className="h-[450px] carousel carousel-vertical rounded-box md:hidden lg:hidden">
+                <div className="md:hidden lg:hidden carousel-center w-11/12 p-4 space-x-4 rounded-box  bg-slate-600 ">
+                    <div className="h-[320px] w-[320px] carousel carousel-vertical rounded-box md:hidden lg:hidden">
                     {
-                        reviews.map(rev=> <div key={rev.id} className="carousel-item w-[200px] h-full rounded-box flex flex-col gap-4 text-center p-10 bg-gradient-to-b from-[#F5EFD7] to-[#FCE9DA]"> 
-                        <FaUserCircle className="mx-auto text-5xl text-[#69551c]"></FaUserCircle>
-                        <h2 className="text-[#69551c] text-2xl font-semibold ">{rev.name}</h2>
-                        <p className="text-[#69551c] text-xl leading-relaxed"><span className="text-2xl font-bold">"</span>{rev.review}<span className="text-2xl font-bold">"</span></p> </div> )
+                        reviews.map(rev=> <div key={rev._id} 
+                            style={{
+                                backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url(${product_image})`,
+                                
+                            }}
+                            className="carousel-item w-[290px] h-full rounded-box flex flex-col gap-4 text-center p-6 bg-center"> 
+                        <img src={rev.reviewer_image} className="max-w-[68px] mt-2 rounded-full mx-auto" alt="" />
+                        <h2 className="text-black text-xl font-bold ">{rev.reviewer_name}</h2>
+                        <p className="text-black font-semibold text-base leading-relaxed"><span className="text-2xl font-bold">"</span>{rev.review_des}<span className="text-2xl font-bold">"</span></p> 
+                        <Rating style={{ maxWidth: 100 }} value={rev.rating} readOnly className="mx-auto"/>
+                        </div> 
+                        )
+                        
                     }
-                </div>               
+                </div>  
+                </div>             
             </div>
         </div>
     </div>
