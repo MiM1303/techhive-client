@@ -45,11 +45,13 @@ export const router = createBrowserRouter([
           element: <ProductsPagination></ProductsPagination>,
           loader: () => fetch("http://localhost:5000/all-products-count")
         },
-        {
-          path: `/all-products/search/:searchText`,
-          element: <ProductsPagination></ProductsPagination>,
-          loader: ({params}) => fetch(`http://localhost:5000/all-products/search/${params.searchText}`)
-      },
+
+        // {
+        //   path: `/all-products/search/:searchText`,
+        //   element: <ProductsPagination></ProductsPagination>,
+        //   loader: ({params}) => fetch(`http://localhost:5000/all-products/search/${params.searchText}`)
+        // },
+
         // DEMO & TESTING PAGES
         {
           path: "/demo",
