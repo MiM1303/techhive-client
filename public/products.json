@@ -8,7 +8,7 @@
       "timestamp": "2024-06-01",
       "upvote_count": 0,
       "description": "Todoist is a task management app that helps you organize and prioritize your tasks and projects.",
-      "status": "pending",
+      "status": "accepted",
       "featured": false
     },
     {
@@ -20,7 +20,7 @@
       "timestamp": "2024-06-05",
       "upvote_count": 0,
       "description": "Loom is a video messaging tool that helps you get your message across through instantly shareable videos.",
-      "status": "pending",
+      "status": "accepted",
       "featured": true
     },
     {
@@ -32,7 +32,7 @@
       "timestamp": "2024-06-10",
       "upvote_count": 0,
       "description": "Miro is an online collaborative whiteboard platform that enables distributed teams to work effectively together.",
-      "status": "pending",
+      "status": "accepted",
       "featured": true
     },
     {
@@ -44,7 +44,7 @@
       "timestamp": "2024-06-15",
       "upvote_count": 0,
       "description": "Trello is a visual tool for organizing your work and life. It helps you manage projects with boards, lists, and cards.",
-      "status": "pending",
+      "status": "accepted",
       "featured": false
     },
     {
@@ -56,7 +56,7 @@
       "timestamp": "2024-06-20",
       "upvote_count": 0,
       "description": "Slite is a collaborative documentation tool that helps teams write, share, and manage information in one place.",
-      "status": "pending",
+      "status": "accepted",
       "featured": true
     },
     {
@@ -68,8 +68,65 @@
       "timestamp": "2024-06-25",
       "upvote_count": 0,
       "description": "Bubble is a no-code platform that allows you to build web applications without coding. Bring your ideas to life quickly and easily.",
-      "status": "pending",
+      "status": "accepted",
       "featured": true
+    },
+    {
+      "product_image": "https://i.ibb.co/8z2BgDv/notion.png",
+      "product_name": "Notion",
+      "product_tags": ["Productivity", "Note-taking", "Collaboration"],
+      "external_links": null,
+      "timestamp": "2024-06-07",
+      "upvote_count": 0,
+      "description": "Notion is an all-in-one workspace for note-taking, project management, and collaboration.",
+      "status": "accepted",
+      "featured": false,
+      "owner_name": "Jannatul Ferdous Mirza",
+      "owner_image": "https://lh3.googleusercontent.com/a/ACg8ocJ2V3gY8CcoKfWewgxfXokVXyhnwz4bT3gIkgnFMKyjo3NhMMe8Lg=s288-c-no",
+      "owner_email": "mirza@gmail.com"
+    },
+    {
+      "product_image": "https://i.ibb.co/sJ3pSxz/forest.png",
+      "product_name": "Forest",
+      "product_tags": ["Productivity", "Focus", "Mobile App"],
+      "external_links": null,
+      "timestamp": "2024-06-12",
+      "upvote_count": [0],
+      "description": "Forest is an app that helps you stay focused by planting virtual trees that grow while you work.",
+      "status": "accepted",
+      "featured": false,
+      "owner_name": "Jannatul Ferdous Mirza",
+      "owner_image": "https://lh3.googleusercontent.com/a/ACg8ocJ2V3gY8CcoKfWewgxfXokVXyhnwz4bT3gIkgnFMKyjo3NhMMe8Lg=s288-c-no",
+      "owner_email": "mirza@gmail.com"
+    },
+    {
+      "product_image": "https://i.ibb.co/307df49/habitica.png",
+      "product_name": "Habitica",
+      "product_tags": ["Productivity", "Gamification", "Mobile App"],
+      "external_links": null,
+      "timestamp": "2024-06-18",
+      "upvote_count": 0,
+      "description": "Habitica is a habit-building app that gamifies your tasks and habits to keep you motivated.",
+      "status": "accepted",
+      "featured": true,
+      "owner_name": "Jannatul Ferdous Mirza",
+      "owner_image": "https://lh3.googleusercontent.com/a/ACg8ocJ2V3gY8CcoKfWewgxfXokVXyhnwz4bT3gIkgnFMKyjo3NhMMe8Lg=s288-c-no",
+      "owner_email": "mirza@gmail.com"
+    },
+    {
+      "product_image": "https://i.ibb.co/Tr5cCNH/gris.png",
+      "product_name": "Gris",
+      "product_tags": ["Game", "Indie", "Art"],
+      "external_links": null,
+      "timestamp": "2024-06-22",
+      "upvote_count": 0,
+      "description": "Gris is a serene and evocative narrative experience, devoid of danger, frustration, or death.",
+      "status": "accepted",
+      "featured": true,
+      "owner_name": "Jannatul Ferdous Mirza",
+      "owner_image": "https://lh3.googleusercontent.com/a/ACg8ocJ2V3gY8CcoKfWewgxfXokVXyhnwz4bT3gIkgnFMKyjo3NhMMe8Lg=s288-c-no",
+      "owner_email": "mirza@gmail.com"
     }
+    
+    
   ]
-  

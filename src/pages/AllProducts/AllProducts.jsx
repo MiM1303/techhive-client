@@ -1,8 +1,9 @@
 
+
 const AllProducts = () => {
     return (
         <div>
-            <h2>Products page</h2>
+            <h2>All Products page</h2>
         </div>
     );
 };

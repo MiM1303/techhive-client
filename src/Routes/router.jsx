@@ -11,6 +11,7 @@ import ProductDetails from "../pages/ProductDetails/ProductDetails";
 import Error404 from "../pages/Shared/Error404";
 import AllProducts from "../pages/AllProducts/AllProducts";
 import PrivateRoute from "./PrivateRoute";
+import ProductsPagination from "../pages/ProductsPagination/ProductsPagination";
 
 export const router = createBrowserRouter([
     {
@@ -30,15 +31,26 @@ export const router = createBrowserRouter([
             path: "/register",
             element: <Registration></Registration>
         },
-        {
-            path: "/all-products",
-            element: <AllProducts></AllProducts>
-        },
+        // {
+        //     path: "/all-products",
+        //     element: <AllProducts></AllProducts>
+        // },
         {
             path: "/product/:id",
             element: <PrivateRoute><ProductDetails></ProductDetails></PrivateRoute>,
             loader: ({params}) => fetch(`http://localhost:5000/products/${params.id}`)
         },
+        {
+          path: "/all-products",
+          element: <ProductsPagination></ProductsPagination>,
+          loader: () => fetch("http://localhost:5000/all-products-count")
+        },
+        {
+          path: `/all-products/search/:searchText`,
+          element: <ProductsPagination></ProductsPagination>,
+          loader: ({params}) => fetch(`http://localhost:5000/all-products/search/${params.searchText}`)
+      },
+        // DEMO & TESTING PAGES
         {
           path: "/demo",
           element: <Demo></Demo>

@@ -139,7 +139,7 @@ const ProductDetails = () => {
             <div className="hero-content text-center text-neutral-100  md:p-14">
                 <div className="">
                     <div className="hero-content text-left md:gap-14 flex-col lg:flex-row">
-                        <Link to={`${external_links}`}><img src={product_image} className="w-1/3 lg:max-w-xs rounded-lg shadow-2xl mx-auto" /></Link>
+                        <Link to={`${external_links}`}><img src={product_image} className="w-1/3 lg:w-full rounded-lg shadow-2xl mx-auto" /></Link>
                         <div>
                         <div className="flex flex-col gap-2 md:flex-row justify-between items-center">
                             <h1 className="text-3xl md:text-5xl font-bold">{product_name}</h1>
