@@ -44,7 +44,7 @@ const Login = () => {
                 user_name: result.user?.displayName,
                 user_image: result.user?.photoURL,
                 user_email: result.user?.email,
-                membership_status: 'not verified',
+                membership_status: 'Not Verified',
             }
             axiosPublic.post('/users', userInfo)
             .then(res=>{
