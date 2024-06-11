@@ -13,7 +13,7 @@ const MyProducts = () => {
         .then(res=>res.json())
         .then(data=>{
             setProducts(data);
-            setLoading(false);
+            // setLoading(false);
             // console.log(count);
         })
     }, [])

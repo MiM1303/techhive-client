@@ -25,7 +25,7 @@ const ListItem = ({product, products, setProducts }) => {
           })
           .then((result)=>{
             if(result.isConfirmed){
-                fetch(`https://serendipia-server.vercel.app/add-spot/${_id}`, {
+                fetch(`http://localhost:5000/add-product/${_id}`, {
                     method: "DELETE",
                 })
                 .then(res=>res.json())
@@ -38,8 +38,6 @@ const ListItem = ({product, products, setProducts }) => {
                             text: "The spot has been deleted!",
                             icon: "success"
                           });
-                        // const remaining = mySpots.filter(cof => cof._id !== _id);
-                        // const remaining = mySpots.filter(sp => sp._id !== _id);
                         setProducts(products.filter(sp=>sp._id!==_id)); 
                     }
                 })
@@ -72,9 +70,9 @@ const ListItem = ({product, products, setProducts }) => {
             
             <td>{status} </td>
             <th className="text-xl text-warning">
-                {/* <Link to={`/updateSpot/${_id}`}> */}
+                <Link to={`/update-product/${_id}`}>
                     <button className="btn btn-ghost btn-xs"><MdModeEdit className="text-3xl text-warning"/></button>
-                {/* </Link> */}
+                </Link>
             </th>
             <th className="text-xl text-red-600">
             <button onClick={()=>handleDelete(_id)} className="btn btn-ghost btn-xs"><MdDelete className="text-3xl text-error"/></button>
