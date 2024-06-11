@@ -8,12 +8,14 @@ import { FcGoogle } from "react-icons/fc";
 import { IoArrowRedoSharp } from "react-icons/io5";
 import { useContext } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
+import useAxiosPublic from '../../hooks/useAxiosPublic';
 
 const Login = () => {
 
     const {register, handleSubmit, formState: { errors }} = useForm();
     const navigate = useNavigate();
     const location = useLocation();
+    const axiosPublic = useAxiosPublic();
     const { signIn, googleSignIn } = useContext(AuthContext);
     const from = location.state?.from?.pathname || "/";
     console.log('state in the location login page', location.state)
@@ -36,11 +38,22 @@ const Login = () => {
     const handleGoogleLogin = ()=>{
         googleSignIn()
         .then(result=>{
-            console.log(result.user)
-            toast.success("Logged in successfully!");
-
+            console.log(result.user);
+            // create user entry in the database
+            const userInfo = {
+                user_name: result.user?.displayName,
+                user_image: result.user?.photoURL,
+                user_email: result.user?.email,
+                membership_status: 'not verified',
+            }
+            axiosPublic.post('/users', userInfo)
+            .then(res=>{
+                console.log(res.data);
+            })
             // navigate after login
             navigate(from, { replace: true });
+            toast.success("Logged in successfully!");
+
             
         })
         

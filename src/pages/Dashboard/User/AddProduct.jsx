@@ -1,10 +1,10 @@
-import Header from "../Shared/Header";
+
 
 
 const AddProduct = () => {
     return (
         <div>
-            <Header></Header>
+            <h2>Add a Product</h2>
         </div>
     );
 };

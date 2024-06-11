@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FaRegEye, FaRegEyeSlash  } from "react-icons/fa6";
@@ -16,8 +16,9 @@ const Registration = () => {
 
     const axiosPublic = useAxiosPublic();
     const [passwordState, setPasswordState] = useState(false);
-    const {register, handleSubmit, formState: { errors }} = useForm();
+    const {register, reset, handleSubmit, formState: { errors }} = useForm();
     const {updateUserProfile, createUser, setUser} = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const onSubmit = (data) => {
         const name = data.name;
@@ -31,9 +32,21 @@ const Registration = () => {
             .then(()=>{
                 // create user entry in the database
                 const userInfo = {
-                    name: data.name,
-                    email: data.email
-            }
+                    user_name: data.name,
+                    user_image: data.photoURL,
+                    user_email: data.email,
+                    membership_status: 'Not Verified',
+                }
+                axiosPublic.post('/users', userInfo)
+                .then(res=>{
+                    if(res.data.insertedId){
+                        console.log('user added to database');
+                        reset();
+                        toast.success("Registration done successfully");
+                        navigate("/");
+                    }
+                })
+                
             })
             .catch(()=>{   
                 toast.error("Something went wrong!");

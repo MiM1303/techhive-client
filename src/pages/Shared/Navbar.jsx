@@ -9,7 +9,7 @@ const Navbar = () => {
 	const axiosPublic = useAxiosPublic();
     const navOptions = <>
         <li><Link to="/">Home</Link ></li>
-        <li><Link >Products</Link ></li>
+        <li><Link to="all-products">Products</Link ></li>
     </>
 
 	const handleLogOut = () => {
@@ -69,7 +69,7 @@ const Navbar = () => {
 					</div>
 					<ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-4 shadow bg-[#EDFAF6] text-[#0CC0DF] rounded-box w-52">
 						<li className="text-center my-2 text-base font-semibold">{user.displayName}</li>
-						<li className="hover:bg-[#98fbdd] hover:text-black"><a>Dashboard</a></li>
+						<li className="hover:bg-[#98fbdd] hover:text-black"><Link to="/dashboard/my-profile">Dashboard</Link></li>
 						<li className="hover:bg-[#98fbdd] hover:text-black"><a onClick={handleLogOut}>Logout</a></li>
 					</ul>
 				</div>

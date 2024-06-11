@@ -6,12 +6,14 @@ import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
 import Registration from "../pages/Registration/Registration";
 import Demo from "../pages/Demo/Demo";
-import AddProduct from "../pages/AddProduct/AddProduct";
 import ProductDetails from "../pages/ProductDetails/ProductDetails";
 import Error404 from "../pages/Shared/Error404";
-import AllProducts from "../pages/AllProducts/AllProducts";
 import PrivateRoute from "./PrivateRoute";
 import ProductsPagination from "../pages/ProductsPagination/ProductsPagination";
+import Dashboard from "../Layout/Dashboard";
+import MyProfile from "../pages/Dashboard/User/MyProfile";
+import AddProduct from "../pages/Dashboard/User/AddProduct";
+import MyProducts from "../pages/Dashboard/User/MyProducts";
 
 export const router = createBrowserRouter([
     {
@@ -31,10 +33,6 @@ export const router = createBrowserRouter([
             path: "/register",
             element: <Registration></Registration>
         },
-        // {
-        //     path: "/all-products",
-        //     element: <AllProducts></AllProducts>
-        // },
         {
             path: "/product/:id",
             element: <PrivateRoute><ProductDetails></ProductDetails></PrivateRoute>,
@@ -46,22 +44,33 @@ export const router = createBrowserRouter([
           loader: () => fetch("http://localhost:5000/all-products-count")
         },
 
-        // {
-        //   path: `/all-products/search/:searchText`,
-        //   element: <ProductsPagination></ProductsPagination>,
-        //   loader: ({params}) => fetch(`http://localhost:5000/all-products/search/${params.searchText}`)
-        // },
-
         // DEMO & TESTING PAGES
         {
           path: "/demo",
           element: <Demo></Demo>
         },
         // WILL BE MOVED TO USER DASHBOARD SIDE
-        {
-          path: "/add-product",
-          element: <AddProduct></AddProduct>
-        }
+        
       ]
     },
+    {
+      path: "/dashboard",
+      element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+      errorElement: <Error404></Error404>,
+      children: [
+        {
+          path: "my-profile",
+          element: <MyProfile></MyProfile>
+        },
+        {
+          path: "add-product",
+          element: <AddProduct></AddProduct>
+        },
+        {
+          path: "my-products",
+          element: <MyProducts></MyProducts>
+        },
+        
+      ]
+    }
   ]);
