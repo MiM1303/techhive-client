@@ -64,7 +64,7 @@ const ListItem = ({product, products, setProducts }) => {
             <td>{product_name}</td>
             {/* location */}
             <td>
-                <div className="pl-8">{upvote_count}</div>
+                <div className="pl-8">{upvote_count.length}</div>
             </td>
             {/*  */}
             

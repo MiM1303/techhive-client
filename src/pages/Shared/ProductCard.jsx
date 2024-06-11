@@ -2,9 +2,13 @@ import { useContext, useEffect, useState } from "react";
 import { BiSolidUpArrow } from "react-icons/bi";
 import { AuthContext } from "../../providers/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const ProductCard = ({product}) => {
     const {_id, product_name, product_image, product_tags, upvote_count, owner_email} = product;
+    const [upvoteCount, setUpvoteCount] = useState(upvote_count);
     const {user, loading, voted, setVoted} = useContext(AuthContext);
     // const [voted, setVoted] = useState(false);
     const navigate = useNavigate();
@@ -15,8 +19,7 @@ const ProductCard = ({product}) => {
         return <progress className="progress w-56"></progress>
     }
 
-    // console.log(user.email)
-    
+    // console.log(product_name, upvoteCount, upvoteCount.length);
     const handleVote = async() =>{
         // redirect user to login if no user
         if(!user){
@@ -25,8 +28,9 @@ const ProductCard = ({product}) => {
         }
 
         // update upvote_count if used has not voted yet
-        if(!voted){
-            fetch(`http://localhost:5000/products/upvote/${_id}/`, {
+        if(!upvoteCount.includes(user.email)){
+            // upvote_count.push(user.email);
+            fetch(`http://localhost:5000/products/upvote/${_id}?email=${user.email}`, {
                 method: "PATCH",
                 headers: {
                     'content-type': 'application/json'
@@ -35,15 +39,20 @@ const ProductCard = ({product}) => {
             })
             .then(res=>res.json())
             .then(data=>{
-                // console.log(data);
-                setVoted(true);
+                setUpvoteCount([user.email, ...upvoteCount]);
+                console.log(data);
+
             })
+        }
+        else{
+            toast.error('You have already upvoted this product');
         }
     }
 
   return (
 
     <div className="card card-side relative w-fit bg-[#EDFAF6] shadow-xl">
+        <ToastContainer />
         <figure className="p-6 w-2/3 min-h-[360px]">
             <img className="max-w-72 rounded-3xl" src={product_image} alt="Movie"/>
         </figure>
@@ -67,7 +76,7 @@ const ProductCard = ({product}) => {
                             <BiSolidUpArrow className="text-2xl hover:text-[#98fbdd]"></BiSolidUpArrow>
                         </button>
                     }
-                    <p className="text-xl font-bold">{upvote_count}</p>
+                    <p className="text-xl font-bold">{upvoteCount.length}</p>
                 </div>
             </div>
         </div>

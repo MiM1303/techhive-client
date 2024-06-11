@@ -9,7 +9,8 @@ import { Rating } from '@smastrom/react-rating'
 import '@smastrom/react-rating/style.css'
 import { Controller, useForm } from 'react-hook-form';
 import SectionTitle from "../Shared/SectionTitle";
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const ProductDetails = () => {
@@ -46,6 +47,15 @@ const ProductDetails = () => {
         return <progress className="progress w-56"></progress>
     }
 
+    // TESTING
+    if(upvote_count.includes(user.email))
+        {
+            console.log('upvote count array contains user email')
+        }
+    else{
+        console.log('upvote count array DOES NOT contain user email')
+    }
+
     const handleVote = async() =>{
         // redirect user to login if no user
         if(!user){
@@ -54,8 +64,7 @@ const ProductDetails = () => {
         }
 
         // update upvote_count if used has not voted yet
-        if(!voted){
-            setAction('upvote');
+        if(!upvote_count.includes(user.email)){
             console.log('upvoted')
             fetch(`http://localhost:5000/products/upvote/${_id}`, {
                 method: "PATCH",
@@ -67,8 +76,10 @@ const ProductDetails = () => {
             .then(res=>res.json())
             .then(data=>{
                 console.log(data);
-                setVoted(true);
             })
+        }
+        else{
+            toast.error('You have already upvoted this product');
         }
     }
 
@@ -127,6 +138,7 @@ const ProductDetails = () => {
 
   return (
     <div>
+        <ToastContainer />
         {/* PRODUCT DETIALS */}
         <div
             className="hero  h-[300px] lg:h-[600px] lg:w-1/2 mx-auto my-20 "
@@ -145,7 +157,7 @@ const ProductDetails = () => {
                             <h1 className="text-3xl md:text-5xl font-bold">{product_name}</h1>
                             <div className="flex  justify-center items-center mr-4">
                                 <div className="flex gap-2 justify-center items-center mr-4 bg-green-500  px-1 md:py-1 md:px-2 rounded-lg md:rounded-2xl">
-                                    <p className="text-lg font-bold">{upvote_count}</p>
+                                    <p className="text-lg font-bold">{upvote_count.length}</p>
                                     {/* if there is user check if user is product owner */}
                                     {user?
                                         <button onClick={handleVote} id="upvote_btn" className={` ${user.email===owner_email? 'disabled' : ''}`} >
