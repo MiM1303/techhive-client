@@ -36,7 +36,8 @@ const Registration = () => {
                     user_image: data.photoURL,
                     user_email: data.email,
                     membership_status: 'Not Verified',
-                    product_add_count: 0
+                    product_add_count: 0,
+                    role: "User"
                 }
                 axiosPublic.post('/users', userInfo)
                 .then(res=>{
