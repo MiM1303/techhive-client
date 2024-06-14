@@ -59,6 +59,7 @@ export const router = createBrowserRouter([
       path: "/dashboard",
       element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
       errorElement: <Error404></Error404>,
+      loader: () => fetch("http://localhost:5000/users/:email"),
       children: [
         {
           path: "my-profile",
