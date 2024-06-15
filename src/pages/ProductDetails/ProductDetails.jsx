@@ -242,7 +242,11 @@ const ProductDetails = () => {
         <SectionTitle heading="Reviews" subHeading={`Swipe to check out some reviews from our users for ${product_name}!`} ></SectionTitle>
 
             {/* REVIEW SLIDER */}
-        <div className="flex flex-col mt-4 md:mt-14 lg:mt-16 justify-center items-center mb-16">
+            {
+                productReviews.length===0?
+                <h2 className="text-center mt-5 lg:text-2xl mb-10 font-semibold">There are no reviews for {product_name} yet. Be the first one to add a review!</h2>
+                :
+                <div className="flex flex-col mt-4 md:mt-14 lg:mt-16 justify-center items-center mb-16">
 
             {/* <div className="lg:carousel md:carousel carousel-center w-2/3 p-4 space-x-4 rounded-box hidden bg-[#EBB22F] "> */}
                 {/* LARGE DEVICE */}
@@ -295,6 +299,8 @@ const ProductDetails = () => {
                 </div>  
                 </div>             
             </div>
+            }
+            
         </div>
     </div>
   );
