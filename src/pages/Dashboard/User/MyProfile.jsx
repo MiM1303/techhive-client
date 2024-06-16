@@ -16,7 +16,7 @@ const MyProfile = () => {
   const coupons = useLoaderData();
   const navigate = useNavigate();
   useEffect(() => {
-    fetch(`techhive-server.vercel.app/users/${user.email}`)
+    fetch(`https://techhive-server.vercel.app/users/${user.email}`)
       .then((res) => res.json())
       .then((data) => {
         setUserData(data);
@@ -26,7 +26,7 @@ const MyProfile = () => {
 
   const onSubmit = async(data) => {
     console.log(data.coupon_text);
-    // fetch(`techhive-server.vercel.app/coupons`)
+    // fetch(`https://techhive-server.vercel.app/coupons`)
     //   .then((res) => res.json())
     //   .then((data) => {
     //     setCoupons(data);

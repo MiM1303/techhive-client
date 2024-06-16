@@ -17,7 +17,7 @@ const Trending = () => {
     const [products, loading, setLoading] = useTrending();
     const [coupons, setCoupons] = useState([]);
     useEffect(()=>{
-        fetch(`techhive-server.vercel.app/coupons`)
+        fetch(`https://techhive-server.vercel.app/coupons`)
         .then(res=>res.json())
         .then(data=>{
             setCoupons(data);

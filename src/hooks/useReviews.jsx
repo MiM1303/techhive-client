@@ -4,7 +4,7 @@ const useReviews = (id) =>{
     const [loading, setLoading] = useState(true);
     const [reviews, setReviews] = useState([]);
     useEffect(()=>{
-        fetch(`techhive-server.vercel.app/reviews/${id}`)
+        fetch(`https://techhive-server.vercel.app/reviews/${id}`)
         .then(res=>res.json())
         .then(data=>{
             setReviews(data);

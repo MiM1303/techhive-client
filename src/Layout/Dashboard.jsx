@@ -18,7 +18,7 @@ const Dashboard = () => {
 
     const [userData, setUserData] = useState([]);
     useEffect(() => {
-        fetch(`techhive-server.vercel.app/users/${user.email}`)
+        fetch(`https://techhive-server.vercel.app/users/${user.email}`)
         .then((res) => res.json())
         .then((data) => {
             setUserData(data);

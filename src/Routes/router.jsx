@@ -42,12 +42,12 @@ export const router = createBrowserRouter([
         {
             path: "/product/:id",
             element: <PrivateRoute><ProductDetails></ProductDetails></PrivateRoute>,
-            loader: ({params}) => fetch(`techhive-server.vercel.app/products/${params.id}`)
+            loader: ({params}) => fetch(`https://techhive-server.vercel.app/products/${params.id}`)
         },
         {
           path: "/all-products",
           element: <ProductsPagination></ProductsPagination>,
-          loader: () => fetch("techhive-server.vercel.app/all-products-count")
+          loader: () => fetch("https://techhive-server.vercel.app/all-products-count")
         },
 
         // DEMO & TESTING PAGES
@@ -63,12 +63,12 @@ export const router = createBrowserRouter([
       path: "/dashboard",
       element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
       errorElement: <Error404></Error404>,
-      loader: () => fetch("techhive-server.vercel.app/users/:email"),
+      loader: () => fetch("https://techhive-server.vercel.app/users/:email"),
       children: [
         {
           path: "my-profile",
           element: <MyProfile></MyProfile>,
-          loader: () => fetch("techhive-server.vercel.app/coupons")
+          loader: () => fetch("https://techhive-server.vercel.app/coupons")
         },
         {
           path: "payment",
@@ -85,7 +85,7 @@ export const router = createBrowserRouter([
         {
           path: `my-products/update-product/:id`,
           element: <PrivateRoute><Update></Update></PrivateRoute>,
-          loader: ({params}) => fetch(`techhive-server.vercel.app/add-product/${params.id}`)
+          loader: ({params}) => fetch(`https://techhive-server.vercel.app/add-product/${params.id}`)
         },
         {
           path: "manage-users",

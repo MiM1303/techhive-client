@@ -4,7 +4,7 @@ const useFeatured = () =>{
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     useEffect(()=>{
-        fetch("techhive-server.vercel.app/featured")
+        fetch("https://techhive-server.vercel.app/featured")
         .then(res=>res.json())
         .then(data=>{
             setProducts(data);

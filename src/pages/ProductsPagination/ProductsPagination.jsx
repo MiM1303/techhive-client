@@ -30,7 +30,7 @@ const ProductsPagination = () => {
    
 
     // useEffect(()=>{
-    //     fetch("techhive-server.vercel.app/all-products-count")
+    //     fetch("https://techhive-server.vercel.app/all-products-count")
     //     .then(res=>res.json())
     //     .then(data=>{
     //         setCount(data);
@@ -42,7 +42,7 @@ const ProductsPagination = () => {
 
     // LOADING DATA
     useEffect(()=>{
-        fetch(`techhive-server.vercel.app/all-products?page=${currentPage}&size=${itemsPerPage}&search=${searchText}`)
+        fetch(`https://techhive-server.vercel.app/all-products?page=${currentPage}&size=${itemsPerPage}&search=${searchText}`)
         .then(res=>res.json())
         .then(data=>{
             setProducts(data);
@@ -53,7 +53,7 @@ const ProductsPagination = () => {
 
     // LOADING DATA COUNT
     useEffect(()=>{
-        fetch(`techhive-server.vercel.app/all-products-count?search=${searchText}`)
+        fetch(`https://techhive-server.vercel.app/all-products-count?search=${searchText}`)
         .then(res=>res.json())
         .then(data=>{
             setCount(data.count);

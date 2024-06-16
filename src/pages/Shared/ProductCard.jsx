@@ -30,7 +30,7 @@ const ProductCard = ({product}) => {
         // update upvote_count if used has not voted yet
         if(!upvoteCount.includes(user.email)){
             // upvote_count.push(user.email);
-            fetch(`techhive-server.vercel.app/products/upvote/${_id}?email=${user.email}`, {
+            fetch(`https://techhive-server.vercel.app/products/upvote/${_id}?email=${user.email}`, {
                 method: "PATCH",
                 headers: {
                     'content-type': 'application/json'

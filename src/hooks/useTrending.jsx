@@ -4,7 +4,7 @@ const useTrending = () =>{
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     useEffect(()=>{
-        fetch("techhive-server.vercel.app/trending")
+        fetch("https://techhive-server.vercel.app/trending")
         .then(res=>res.json())
         .then(data=>{
             setProducts(data);

@@ -30,7 +30,7 @@ const AddProduct = () => {
       const [addedProductCount, setAddedProductCount] = useState(0);
       const [membershipStatus, setMembershipStatus] = useState('');
       useEffect(()=>{
-        fetch(`techhive-server.vercel.app/users/${user.email}`)
+        fetch(`https://techhive-server.vercel.app/users/${user.email}`)
         .then((res) => res.json())
         .then((data) => {
             setAddedProductCount(data.product_add_count);

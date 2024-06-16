@@ -21,7 +21,7 @@ const ManageUsers = () => {
     
     // const [users, setUsers] = useState([]);
     // useEffect(()=>{
-    //     fetch('techhive-server.vercel.app/users')
+    //     fetch('https://techhive-server.vercel.app/users')
     //     .then(res=>res.json())
     //     .then(data=>{
     //         setUsers(data);

@@ -26,7 +26,7 @@ const ReviewQueue = () => {
 
     const [products, setProducts] = useState([]);
     useEffect(()=>{
-        fetch(`techhive-server.vercel.app/products-review-queue`)
+        fetch(`https://techhive-server.vercel.app/products-review-queue`)
         .then(res=>res.json())
         .then(data=>{
             setProducts(data);
@@ -41,7 +41,7 @@ const ReviewQueue = () => {
             toast.error(`${product.product_name} is already featured!`)
         }
         else{
-            fetch(`techhive-server.vercel.app/products/featured/${id}/`, {
+            fetch(`https://techhive-server.vercel.app/products/featured/${id}/`, {
                 method: "PATCH",
                 headers: {
                     'content-type': 'application/json'
@@ -66,7 +66,7 @@ const ReviewQueue = () => {
             toast.error(`${product.product_name} is already accepted!`);
         }
         else{
-            fetch(`techhive-server.vercel.app/products/accepted/${id}/`, {
+            fetch(`https://techhive-server.vercel.app/products/accepted/${id}/`, {
                     method: "PATCH",
                     headers: {
                         'content-type': 'application/json'
@@ -92,7 +92,7 @@ const ReviewQueue = () => {
             toast.error(`${product.product_name} is already rejected!`);
         }
         else{
-            fetch(`techhive-server.vercel.app/products/rejected/${id}/`, {
+            fetch(`https://techhive-server.vercel.app/products/rejected/${id}/`, {
                     method: "PATCH",
                     headers: {
                         'content-type': 'application/json'
