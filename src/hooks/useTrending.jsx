@@ -11,7 +11,7 @@ const useTrending = () =>{
             setLoading(false);
         })
     })
-    return [products, loading];
+    return [products, loading, setLoading];
 
 }
 

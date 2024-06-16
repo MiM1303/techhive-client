@@ -7,6 +7,23 @@
     width: 200px;
 }
 
+.couponCarousel{
+  margin-top: 50px;
+  /* margin-left: 500px; */
+
+}
+
+
+.couponCarousel .slide{
+    height: 480px;
+    
+}
+
+.couponCarousel .slide img {
+  height: 500px;
+  width: 900px;
+}
+
 #overlay {
     position: fixed; /* Sit on top of the page content */
     /* display: none; Hidden by default */

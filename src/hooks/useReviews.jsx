@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 
 const useReviews = (id) =>{
-    const [reviews, setReviews] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [reviews, setReviews] = useState([]);
     useEffect(()=>{
         fetch(`http://localhost:5000/reviews/${id}`)
         .then(res=>res.json())
