@@ -18,6 +18,7 @@ import Update from "../pages/Dashboard/User/Update";
 import ManageUsers from "../pages/Dashboard/Admin/ManageUsers";
 import ReviewQueue from "../pages/Dashboard/Moderator/ReviewQueue";
 import ReportedContents from "../pages/Dashboard/Moderator/ReportedContents";
+import Payment from "../pages/Dashboard/User/Payment";
 
 export const router = createBrowserRouter([
     {
@@ -66,6 +67,10 @@ export const router = createBrowserRouter([
         {
           path: "my-profile",
           element: <MyProfile></MyProfile>
+        },
+        {
+          path: "payment",
+          element: <Payment></Payment>
         },
         {
           path: "add-product",

@@ -3,9 +3,10 @@ import "react-toastify/dist/ReactToastify.css";
 import { Helmet } from "react-helmet-async";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
+import { Link } from "react-router-dom";
 
 const MyProfile = () => {
-  const { user, loading, setLoading } = useContext(AuthContext);
+  const { user, loading, setLoading, subscriptionCost, setSubscriptionCost } = useContext(AuthContext);
   const [userData, setUserData] = useState([]);
   useEffect(() => {
     fetch(`http://localhost:5000/users/${user.email}`)
@@ -56,9 +57,14 @@ const MyProfile = () => {
           </tbody>
         </table>
         {userData.membership_status === "Not Verified" ? (
-          <button className="btn bg-transparent border-[#5CE1E6] mt-6 hover:bg-[#EDFAF6] hover:text-black hover:border-[#5CE1E6] text-lg font-semibold flex mx-auto">
-            Subscribe
-          </button>
+          <Link to="/dashboard/payment">
+            <button 
+              onClick={()=>{
+                setSubscriptionCost(20); 
+                console.log(subscriptionCost)}} className="btn bg-transparent border-[#5CE1E6] mt-6 hover:bg-[#EDFAF6] hover:text-black hover:border-[#5CE1E6] text-lg font-semibold flex mx-auto">
+              Subscribe
+            </button>
+          </Link>
         ) : (
           <></>
         )}
