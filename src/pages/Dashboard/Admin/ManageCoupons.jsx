@@ -17,7 +17,7 @@ const ManageCoupons = () => {
     const {register, handleSubmit, formState: { errors }} = useForm();
     // const [coupons, setCoupons] = useState([]);
     // useEffect(()=>{
-    //     fetch(`http://localhost:5000/coupons`)
+    //     fetch(`techhive-server.vercel.app/coupons`)
     //     .then(res=>res.json())
     //     .then(data=>{
     //         setCoupons(data);

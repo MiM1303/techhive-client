@@ -6,7 +6,7 @@ const TableRow = ({users, user, setUsers}) => {
     const handleRoleUpdate = () =>{
 
 
-        fetch(`http://localhost:5000/users/${user.user_email}?role=${user.email}`, {
+        fetch(`techhive-server.vercel.app/users/${user.user_email}?role=${user.email}`, {
             method: "PATCH",
             headers: {
                 'content-type': 'application/json'

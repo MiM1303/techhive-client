@@ -26,7 +26,7 @@ const ProductDetails = () => {
     const [productReviews, setProductReviews] = useState([])
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/reviews/${_id}`)
+        fetch(`techhive-server.vercel.app/reviews/${_id}`)
         .then(res=>res.json())
         .then(data=>setProductReviews(data))
     }, [])
@@ -66,7 +66,7 @@ const ProductDetails = () => {
         // update upvote_count if used has not voted yet
         if(!upvote_count.includes(user.email)){
             // console.log('upvoted')
-            fetch(`http://localhost:5000/products/upvote/${_id}`, {
+            fetch(`techhive-server.vercel.app/products/upvote/${_id}`, {
                 method: "PATCH",
                 headers: {
                     'content-type': 'application/json'
@@ -86,7 +86,7 @@ const ProductDetails = () => {
     const handleReport = () =>{
         
             // console.log('report')
-            fetch(`http://localhost:5000/products/report/${_id}/`, {
+            fetch(`techhive-server.vercel.app/products/report/${_id}/`, {
                 method: "PATCH",
                 headers: {
                     'content-type': 'application/json'
@@ -109,7 +109,7 @@ const ProductDetails = () => {
             // console.log(review);
             
             // send review data to server
-            fetch('http://localhost:5000/reviews', {
+            fetch('techhive-server.vercel.app/reviews', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'

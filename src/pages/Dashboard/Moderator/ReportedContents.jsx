@@ -12,7 +12,7 @@ const ReportedContents = () => {
     // GET PRODUCT DATA
     const [products, setProducts] = useState([]);
     useEffect(()=>{
-        fetch(`http://localhost:5000/reported-products`)
+        fetch(`techhive-server.vercel.app/reported-products`)
         .then(res=>res.json())
         .then(data=>{
             setProducts(data);
@@ -34,7 +34,7 @@ const ReportedContents = () => {
           })
           .then((result)=>{
             if(result.isConfirmed){
-                fetch(`http://localhost:5000/add-product/${_id}`, {
+                fetch(`techhive-server.vercel.app/add-product/${_id}`, {
                     method: "DELETE",
                 })
                 .then(res=>res.json())

@@ -31,7 +31,7 @@ const Update = () => {
         console.log(updatedProductInfo);
 
         //send a data to the server
-        fetch(`http://localhost:5000/update-product/${_id}`, {
+        fetch(`techhive-server.vercel.app/update-product/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',

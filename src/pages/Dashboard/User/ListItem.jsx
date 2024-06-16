@@ -25,7 +25,7 @@ const ListItem = ({product, products, setProducts }) => {
           })
           .then((result)=>{
             if(result.isConfirmed){
-                fetch(`http://localhost:5000/add-product/${_id}`, {
+                fetch(`techhive-server.vercel.app/add-product/${_id}`, {
                     method: "DELETE",
                 })
                 .then(res=>res.json())
