@@ -19,6 +19,7 @@ import ManageUsers from "../pages/Dashboard/Admin/ManageUsers";
 import ReviewQueue from "../pages/Dashboard/Moderator/ReviewQueue";
 import ReportedContents from "../pages/Dashboard/Moderator/ReportedContents";
 import Payment from "../pages/Dashboard/User/Payment";
+import ManageCoupons from "../pages/Dashboard/Admin/ManageCoupons";
 
 export const router = createBrowserRouter([
     {
@@ -88,6 +89,10 @@ export const router = createBrowserRouter([
         {
           path: "manage-users",
           element: <ManageUsers></ManageUsers>
+        },
+        {
+          path: "manage-coupons",
+          element: <ManageCoupons></ManageCoupons>
         },
         {
           path: "products-review-queue",

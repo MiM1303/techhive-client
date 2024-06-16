@@ -56,16 +56,17 @@ const MyProfile = () => {
             )}
           </tbody>
         </table>
-        {userData.membership_status === "Not Verified" ? (
+        {userData.membership_status === "Not Verified" ? <>
+          <h2 className="mt-10 text-center text-xl font-medium">Subscribe to our membership below to enjoy added benefits!</h2>
           <Link to="/dashboard/payment">
             <button 
               onClick={()=>{
                 setSubscriptionCost(20); 
                 console.log(subscriptionCost)}} className="btn bg-transparent border-[#5CE1E6] mt-6 hover:bg-[#EDFAF6] hover:text-black hover:border-[#5CE1E6] text-lg font-semibold flex mx-auto">
-              Subscribe
+              $20
             </button>
           </Link>
-        ) : (
+          </> : (
           <></>
         )}
       </div>

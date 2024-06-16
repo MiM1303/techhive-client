@@ -55,6 +55,7 @@ const Dashboard = () => {
                         // ADMIN
                         userData.role==='Admin'? <>
                         <li className="px-4"><NavLink to="/dashboard/manage-users" className="flex gap-5"><FaRegListAlt className="text-xl"/><span className="text-lg">Manage Users</span></NavLink></li>
+                        <li className="px-4"><NavLink to="/dashboard/manage-coupons" className="flex gap-5"><FaRegListAlt className="text-xl"/><span className="text-lg">Manage Coupons</span></NavLink></li>
                         </>
                         :
                         <>
