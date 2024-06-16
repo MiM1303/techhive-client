@@ -67,7 +67,8 @@ export const router = createBrowserRouter([
       children: [
         {
           path: "my-profile",
-          element: <MyProfile></MyProfile>
+          element: <MyProfile></MyProfile>,
+          loader: () => fetch("http://localhost:5000/coupons")
         },
         {
           path: "payment",

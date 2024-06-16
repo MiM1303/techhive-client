@@ -65,7 +65,7 @@ const ProductDetails = () => {
 
         // update upvote_count if used has not voted yet
         if(!upvote_count.includes(user.email)){
-            console.log('upvoted')
+            // console.log('upvoted')
             fetch(`http://localhost:5000/products/upvote/${_id}`, {
                 method: "PATCH",
                 headers: {
@@ -75,7 +75,7 @@ const ProductDetails = () => {
             })
             .then(res=>res.json())
             .then(data=>{
-                console.log(data);
+                // console.log(data);
             })
         }
         else{
@@ -85,7 +85,7 @@ const ProductDetails = () => {
 
     const handleReport = () =>{
         
-            console.log('report')
+            // console.log('report')
             fetch(`http://localhost:5000/products/report/${_id}/`, {
                 method: "PATCH",
                 headers: {
@@ -95,7 +95,7 @@ const ProductDetails = () => {
             })
             .then(res=>res.json())
             .then(data=>{
-                console.log(data);
+                // console.log(data);
             })
         
     }
@@ -106,7 +106,7 @@ const ProductDetails = () => {
             review.reviewer_image = user.photoURL;
             review.reviewer_name = user.displayName;
             review.product_Id = _id;
-            console.log(review);
+            // console.log(review);
             
             // send review data to server
             fetch('http://localhost:5000/reviews', {
@@ -118,7 +118,7 @@ const ProductDetails = () => {
             })
             .then(res=>res.json())
             .then(data=>{
-                console.log(data);
+                // console.log(data);
                 
                 if(data.insertedId)
                 {
