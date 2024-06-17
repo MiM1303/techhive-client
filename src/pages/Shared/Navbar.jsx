@@ -20,13 +20,13 @@ const Navbar = () => {
 
 	console.log(user);
 	return (
-		<div className="navbar bg-[#EDFAF6] text-black py-3 px-10">
+		<div className="navbar bg-[#EDFAF6] text-black py-3 lg:px-10">
 			<div className="navbar-start">
 				<div className="dropdown text-[#0CC0DF] bg-[#EDFAF6]">
 					<div
 						tabIndex={0}
 						role="button"
-						className="btn btn-ghost lg:hidden"
+						className="btn btn-ghost p-1 lg:hidden"
 					>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
@@ -51,7 +51,7 @@ const Navbar = () => {
 					</ul>
 				</div>
 				<Link to="/" className="bg-[#EDFAF6] text-xl">
-                    <img className="h-12" src={logo} alt="" />    
+                    <img className="h-9 md:h-12" src={logo} alt="" />    
                 </Link>
 			</div>
 			<div className="navbar-center hidden lg:flex">

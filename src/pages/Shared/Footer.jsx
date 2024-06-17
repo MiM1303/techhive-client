@@ -6,25 +6,25 @@ const Footer = () => {
 		<footer className="">
 			<div className="footer p-10 bg-[#EDFAF6] text-black">
 				<nav>
-					<img className="h-20" src={logo} alt="" />
+					<img className="h-12 mx-auto md:mx-0 md:h-20" src={logo} alt="" />
 					<p>
 						Providing reliable products since 2024
 					</p>
 				</nav>
-				<nav>
-					<h6 className="footer-title">Contact Us</h6>
-					<a className="link link-hover">Branding</a>
-					<a className="link link-hover">Design</a>
-					<a className="link link-hover">Marketing</a>
-					<a className="link link-hover">Advertisement</a>
+				<nav className="mx-auto">
+					<h6 className="footer-title mx-auto">Contact Us</h6>
+					<a className="link link-hover mx-auto">Branding</a>
+					<a className="link link-hover mx-auto">Design</a>
+					<a className="link link-hover mx-auto">Marketing</a>
+					<a className="link link-hover mx-auto">Advertisement</a>
 				</nav>
-				<nav>
-                <h6 className="footer-title">Address</h6>
-                    <a className="link link-hover">Street 16, Mirpur-14,</a>
-                    <a className="link link-hover">Dhaka-1216, Bangladesh</a>
+				<nav className="mx-auto">
+                <h6 className="footer-title mx-auto">Address</h6>
+                    <a className="link link-hover mx-auto">Street 16, Mirpur-14,</a>
+                    <a className="link link-hover mx-auto">Dhaka-1216, Bangladesh</a>
 				</nav>
-				<nav>
-					<h6 className="footer-title">Social</h6>
+				<nav className="mx-auto">
+					<h6 className="footer-title mx-auto">Social</h6>
 					<div className="grid grid-flow-col gap-4">
 						<a>
 							<svg
@@ -62,7 +62,7 @@ const Footer = () => {
 					</div>
 				</nav>
 			</div>
-			<nav className="pb-6 text-center bg-[#EDFAF6] text-black">
+			<nav className="pb-6 text-center text-sm md:text-base bg-[#EDFAF6] text-black">
 				<p>
 					Copyright © {new Date().getFullYear()} - All right reserved
 					by ACME Industries Ltd
