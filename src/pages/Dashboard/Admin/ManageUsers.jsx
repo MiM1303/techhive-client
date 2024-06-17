@@ -60,16 +60,16 @@ const ManageUsers = () => {
         <div>
             <SectionTitle heading="Manage Users" subHeading={`Number of Users: ${users.length}`}></SectionTitle>
 
-            <div className="overflow-x-auto px-28">
+            <div className="overflow-x-auto lg:px-28">
                 <table className="table">
                     {/* head */}
                     <thead>
                     <tr>
-                        <th>User Name</th>
-                        <th>User Email</th>
-                        <th>Role</th>
-                        <th>Make Moderator</th>
-                        <th>Make Admin</th>
+                        <th className="px-1 md:px-6 text-center text-wrap">User Name</th>
+                        <th className="px-1 md:px-6 text-center text-wrap">User Email</th>
+                        <th className="px-1 md:px-6 text-center">Role</th>
+                        <th className="px-1 md:px-6 text-center text-wrap">Make Moderator</th>
+                        <th className="px-1 md:px-6 text-center text-wrap">Make Admin</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -86,20 +86,20 @@ const ManageUsers = () => {
                     {
                         users.map(user=> <tr key={user._id}>       
                             {/* User Name */}
-                            <td>{user.user_name}</td>
+                            <td className="px-0 text-center">{user.user_name}</td>
                             {/* User Email */}
-                            <td>{user.user_email}</td>
+                            <td className="px-0 text-center ">{user.user_email}</td>
                             {/* Role */}
-                            <td>{user.role}</td>
+                            <td className="px-0 text-center">{user.role}</td>
                             {/* Make Moderator Button */}
-                            <th className="text-xl text-warning text-center lg:pr-28">
+                            <th className="text-xl px-0 text-center text-warning text-center lg:pr-28">
                                 {/* <Link to={`/update-product/${_id}`}> */}
-                                    <button onClick={()=>{handleRoleUpdate("Moderator", user)}} className="btn btn-ghost btn-xs"><FaUserShield className="text-3xl text-warning"/></button>
+                                    <button onClick={()=>{handleRoleUpdate("Moderator", user)}} className="btn btn-ghost btn-xs"><FaUserShield className="text-lg lg:text-3xl text-warning"/></button>
                                 {/* </Link> */}
                             </th>
                             {/* Make Admin Button */}
-                            <th className="text-xl text-red-600 text-center lg:pr-20">
-                            <button onClick={()=>{handleRoleUpdate("Admin", user)}} className="btn btn-ghost btn-xs"><RiAdminFill className="text-3xl text-error"/></button>
+                            <th className="text-xl px-0 text-center text-red-600 text-center lg:pr-20">
+                            <button onClick={()=>{handleRoleUpdate("Admin", user)}} className="btn btn-ghost btn-xs"><RiAdminFill className="text-lg lg:text-3xl text-error"/></button>
                             </th>
                         </tr>)
                     }

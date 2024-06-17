@@ -89,8 +89,8 @@ const ManageCoupons = () => {
             {/* COUPON CARDS AND FORM */}
             <div className="">
             {/* COUPON FORM */}
-            <h2 className="text-center font-medium text-3xl mt-10 border-b-4 w-fit mx-auto rounded-2xl p-4  border-[#98fbdd] mb-12">Add Coupon</h2>
-            <form onSubmit={handleSubmit(onSubmit)} className="card-body  rounded-xl p-6 w-1/2 mx-auto  bg-[#EDFAF6]">
+            <h2 className="text-center font-medium text-xl md:text-2xl lg:text-3xl mt-10 border-b-4 w-fit mx-auto rounded-2xl p-4  border-[#98fbdd] mb-12">Add Coupon</h2>
+            <form onSubmit={handleSubmit(onSubmit)} className="card-body  rounded-xl p-6 w-full lg:w-1/2 mx-auto  bg-[#EDFAF6]">
                 {/* coupon code */}
                 <div className="form-control mb-3">
                     <label className="label">
@@ -133,8 +133,8 @@ const ManageCoupons = () => {
                 </div>
             </form>
             {/* COUPON CARDS */}
-            <h2 className="text-center font-medium text-3xl mt-10 border-b-4 w-fit mx-auto rounded-2xl p-4  border-[#98fbdd]">Existing Coupons</h2>
-            <div className='grid grid-cols-3 gap-10 p-10'>
+            <h2 className="text-center font-medium text-xl md:text-2xl lg:text-3xl mt-10 border-b-4 w-fit mx-auto rounded-2xl p-4  border-[#98fbdd]">Existing Coupons</h2>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 p-10'>
                 {coupons.map(coupon => 
                     <>
                     <div className="card max-w-96 bg-[#EDFAF6] shadow-xl">
@@ -143,8 +143,8 @@ const ManageCoupons = () => {
                                 <div><ImCross onClick={()=>{handleDeleteCoupon(coupon._id, coupon)}} className="text-red-500 text-xl"/></div>
                                 <div><MdEdit onClick={()=>{handleEditCoupon(coupon._id, coupon)}} className="text-slate-500 text-2xl"/></div>
                             </div>
-                            <h2 className="card-title text-center font-bold">{coupon.coupon_code}</h2>
-                            <h2 className="card-title">Discount Amount: {coupon.discount_amount}</h2>
+                            <h2 className="card-title text-lg text-center font-bold">{coupon.coupon_code}</h2>
+                            <h2 className="card-title text-lg">Discount Amount: {coupon.discount_amount}</h2>
                             <p><span className="text-black font-medium">Valid Till: </span>{coupon.expiry_date}</p>
                             <p>{coupon.coupon_code_description}</p>
                         </div>

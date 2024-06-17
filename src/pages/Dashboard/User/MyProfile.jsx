@@ -62,7 +62,7 @@ const MyProfile = () => {
   return (
     <div className=" flex flex-col items-center gap-5 max-w-9/12">
       <ToastContainer/>
-      <h2 className="text-center mb-3 md:mb-6 text-xl md:text-3xl font-bold text-[#442537] border-b-4 px-2 pb-4 md:p-5 rounded-xl border-[#5CE1E6] ">
+      <h2 className="text-center font-medium text-3xl mt-10 border-b-4 w-fit mx-auto rounded-2xl p-4  border-[#98fbdd] mb-12">
         {user.displayName}'s Profile
       </h2>
       <img

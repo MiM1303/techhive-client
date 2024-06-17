@@ -59,14 +59,14 @@ const ReportedContents = () => {
             <div>
             <SectionTitle heading="Products Review Queue" subHeading=""></SectionTitle>
             <ToastContainer/>
-            <div className="overflow-x-auto px-28">
+            <div className="overflow-x-auto lg:px-28">
                 <table className="table table-zebra">
                     {/* head */}
                     <thead>
                     <tr>
-                        <th>Product Name</th>
-                        <th>View Details</th>
-                        <th>Reject</th>
+                        <th className="px-1 md:px-6 text-center">Product Name</th>
+                        <th className="px-1 md:px-6 text-center">View Details</th>
+                        <th className="px-1 md:px-6 text-center">Reject</th>
                     </tr>
                     </thead>
                     <tbody className="space-y-20">
@@ -75,10 +75,10 @@ const ReportedContents = () => {
                     {
                         products.map(product=> <tr className="" key={product._id}>       
                             {/* Product Name */}
-                            <td className="">{product.product_name}</td>
+                            <td className=" px-0 text-center">{product.product_name}</td>
 
                             {/* View Details */}
-                            <th>
+                            <th className="text-center px-0">
                                 <Link to={`/product/${product._id}`}>
                                     <FcViewDetails className="mx-auto"/>
                                 </Link>
@@ -86,7 +86,7 @@ const ReportedContents = () => {
                                                          
 
                             {/* Delete Product */}
-                            <th>
+                            <th className="text-center px-0">
                                     <TiDelete onClick={()=>handleDelete(product._id)}  className="text-red-400 mx-auto"/>                           
                             </th>
                         </tr>)
