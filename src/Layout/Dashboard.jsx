@@ -42,7 +42,7 @@ const Dashboard = () => {
                 {/* Page content here */}
                 <label htmlFor="my-drawer-2" className="btn bg-[#b6f8e4] text-black hover:bg-[#98fbdd] drawer-button lg:hidden">Open Sidebar</label>
                 {/* <h2 className="text-2xl mt-10 font-bold">Welcome to Dashboard, {user.user_name}!</h2> */}
-                <div className="flex-1 p-8">
+                <div className="flex-1 lg:p-8">
                     <Outlet></Outlet>
                 </div>
             
@@ -50,7 +50,7 @@ const Dashboard = () => {
             <div className="drawer-side ">
                 <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label> 
                 <ul className="menu p-4 space-y-3 w-fit md:w-80 min-h-full bg-[#EDFAF6] text-base-content">
-                <li ><NavLink to="/"><img src={logo} alt="" className="w-48 mb-16" /></NavLink></li>
+                <li className="mx-auto"><NavLink to="/"><img src={logo} alt="" className="w-36 md:w-44 lg:w-48 md:mb-6 lg:mb-16" /></NavLink></li>
                     {
                         // ADMIN
                         userData.role==='Admin'? <>

@@ -11,7 +11,7 @@ const Featured = () => {
     return (
         <div className="mb-24">
             <SectionTitle heading="Featured Products" subHeading="Check out all of our latest products from our featured section to find your needed tech today!"></SectionTitle>
-            <div className="mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6 w-11/12">
+            <div className="mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-11/12">
                 {products.map(product=> <ProductCard key={product._id} product={product}></ProductCard>)}
             </div>
         </div>

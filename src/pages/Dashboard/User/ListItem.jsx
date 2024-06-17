@@ -45,13 +45,13 @@ const ListItem = ({product, products, setProducts }) => {
           })
     }
     return (
-        <tr>
+        <tr >
             {/* image */}
-            <td>
-            <div className="flex items-center gap-3">
+            <td className="px-0 py-2">
+            <div className="flex items-center justify-center gap-3 mx-auto">
                 <div className="avatar">
-                <div className="mask mask-squircle w-16 h-16">
-                    <img src={product_image} className=""  />
+                <div className="mask mask-squircle  w-8 h-8 lg:w-16 lg:h-16">
+                    <img src={product_image} className="md:mx-auto"  />
                 </div>
                 </div>
                 {/* <div>
@@ -60,22 +60,22 @@ const ListItem = ({product, products, setProducts }) => {
                 </div> */}
             </div>
             </td>
-            {/* Spot Name */}
-            <td>{product_name}</td>
-            {/* location */}
-            <td>
-                <div className="pl-8">{upvote_count.length}</div>
+            {/* Product Name */}
+            <td className="p-0 text-center">{product_name}</td>
+            {/* upvotes */}
+            <td className="p-0 text-center">
+                <div className="lg:pl-8">{upvote_count.length}</div>
             </td>
             {/*  */}
             
-            <td>{status} </td>
-            <th className="text-xl text-warning">
+            <td className="p-0">{status} </td>
+            <th className="text-xl text-warning p-0">
                 <Link to={`/update-product/${_id}`}>
-                    <button className="btn btn-ghost btn-xs"><MdModeEdit className="text-3xl text-warning"/></button>
+                    <button className="btn btn-ghost btn-xs"><MdModeEdit className="text-lg lg:text-3xl text-warning"/></button>
                 </Link>
             </th>
-            <th className="text-xl text-red-600">
-            <button onClick={()=>handleDelete(_id)} className="btn btn-ghost btn-xs"><MdDelete className="text-3xl text-error"/></button>
+            <th className="text-xl text-red-600 p-0">
+            <button onClick={()=>handleDelete(_id)} className="btn btn-ghost btn-xs"><MdDelete className="text-lg lg:text-3xl text-error"/></button>
             </th>
         </tr>
     );

@@ -60,39 +60,39 @@ const MyProfile = () => {
 }
 
   return (
-    <div className=" flex flex-col items-center gap-5">
+    <div className=" flex flex-col items-center gap-5 max-w-9/12">
       <ToastContainer/>
-      <h2 className="text-center mb-6 text-3xl font-bold text-[#442537] border-b-4 p-5 rounded-xl border-[#5CE1E6] ">
+      <h2 className="text-center mb-3 md:mb-6 text-xl md:text-3xl font-bold text-[#442537] border-b-4 px-2 pb-4 md:p-5 rounded-xl border-[#5CE1E6] ">
         {user.displayName}'s Profile
       </h2>
       <img
-        className="w-9 h-9 md:w-10 md:h-10 lg:w-40 lg:h-40 border-[#5CE1E6] border-8 rounded-full btn-circle avatar"
+        className="w-20 h-20 md:w-24 md:h-24 lg:w-40 lg:h-40 border-[#5CE1E6] border-8 rounded-full btn-circle avatar"
         src={user.photoURL}
         alt=""
       />
-      <div className="overflow-x-auto">
-        <table className="table text-xl">
-          <tbody>
+      <div className="overflow-x-auto max-w-1/2">
+        <table className="table text-xl max-w-1/2">
+          <tbody className="max-w-[200px]">
             {/* row 1 */}
             <tr className="bg-[#EDFAF6]">
-              <th className="p-10">Name:</th>
-              <td>{user.displayName}</td>
+              <th className="md:p-10 text-base md:text-lg ">Name:</th>
+              <td className="w-40 text-base">{user.displayName}</td>
             </tr>
             {/* row 2 */}
             <tr>
-              <th className="p-10">Email:</th>
-              <td>{user.email}</td>
+              <th className="md:p-10 text-base md:text-lg">Email:</th>
+              <td className=" text-base">{user.email}</td>
             </tr>
             {/* row 3 */}
-            <tr className="bg-[#EDFAF6]">
-              <th className="p-10">Photo URL:</th>
-              <td>{user.photoURL}</td>
-            </tr>
+            {/* <tr className="bg-[#EDFAF6] md:max-w-1/4">
+              <th className="p-10 md:text-lg">Photo URL:</th>
+              <td className=""><p className="max-w-1/12">{user.photoURL}</p></td>
+            </tr> */}
             {/* row 4 */}
             {userData.membership_status === "Verified" ? (
               <tr>
-                <th className="p-10">Membership Subscription Status:</th>
-                <td>{userData.membership_status}</td>
+                <th className="md:p-10 text-base md:text-lg">Membership Subscription Status:</th>
+                <td className=" text-base">{userData.membership_status}</td>
               </tr>
             ) : (
               <></>

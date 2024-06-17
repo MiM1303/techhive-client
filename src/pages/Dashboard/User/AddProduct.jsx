@@ -155,27 +155,27 @@ const AddProduct = () => {
                 Product Owner Information:
                             
                 </label>
-                <div className="form-control flex flex-col md:flex-row gap-4 md:gap-14">
+                <div className="form-control flex flex-col lg:flex-row gap-4 md:gap-14">
                 
                 <img src={user.photoURL} className="w-16 h-16 rounded-full" alt="" />
                       {/* item 1 */}
                     <div className="md:w-1/2">
                     
-                        <label className="input input-bordered flex items-center text-base md:text-xl h-16 gap-2">
+                        <label className="input input-bordered flex items-center text-base md:text-xl md:w-fit h-16 gap-2">
                             Added By:
                             <input type="text" className="grow p-1" placeholder={user.displayName} disabled/>
                         </label>
                     </div>
                     {/* item 2 */}
                     <div className="md:w-1/2">
-                        <label className="input input-bordered flex items-center text-base md:text-xl h-16 gap-2">
+                        <label className="input input-bordered flex items-center text-base md:text-xl md:w-fit h-16 gap-2">
                             Email:
                             <input type="text" className="grow p-1" placeholder={user.email} disabled/>
                         </label>
                     </div>
                 </div>
                 <div className="form-control mt-6">
-                    <button className="btn bg-[#cb946a] button-styles text-base font-bold lg:text-xl  pb-10 pt-4 flex items-center justify-center">
+                    <button className="btn bg-[#b6f8e4] text-black button-styles hover:bg-[#98fbdd] text-base font-bold lg:text-xl  pb-10 pt-4 flex items-center justify-center">
                         Submit
                     </button>
                 </div>

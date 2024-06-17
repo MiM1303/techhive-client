@@ -15,3 +15,72 @@ td{
 .label-text{
     color: #31572C;
 }
+
+
+@media only screen and (max-width: 768px) {
+    th{
+        font-size: 12px;
+        font-weight: semi-bold;
+        padding: 0px;
+    }
+    
+    td{
+        font-size: 12px;
+        font-weight: 400;
+        padding: 0px;
+    }
+    
+    .input-bordered{
+        border-color: #90A955;
+    }
+    
+    .label-text{
+        color: #31572C;
+    }
+    
+    
+  }
+
+  @media only screen and (max-width: 1024px){
+
+    .slide{
+      height: 320px;
+    }
+      
+      .slide img {
+          height: 320px;
+          width: fit-content;
+      }
+
+    .couponCarousel .slide{
+        height: 280px;
+        
+    }
+    
+    .couponCarousel .slide img {
+      height: 280px;
+      width: 640px;
+    }
+    
+    #overlay {
+      position: fixed; /* Sit on top of the page content */
+      /* display: none; Hidden by default */
+      width: 100%; /* Full width (cover the whole page) */
+      height: 100%; /* Full height (cover the whole page) */
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0,0,0,0.8); /* Black background with opacity */
+      z-index: 3; /* Specify a stack order in case you're using a different order for other elements */
+      cursor: pointer; /* Add a pointer on hover */
+    }
+  
+    .image-container{
+      filter: brightness(0.6);
+    }
+  
+    .detail-bg{
+      filter: brightness(0.3);
+    }
+  }

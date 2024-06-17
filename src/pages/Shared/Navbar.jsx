@@ -26,7 +26,7 @@ const Navbar = () => {
 					<div
 						tabIndex={0}
 						role="button"
-						className="btn btn-ghost p-1 lg:hidden"
+						className="btn btn-ghost p-1 md:p-3 lg:hidden"
 					>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
@@ -51,7 +51,7 @@ const Navbar = () => {
 					</ul>
 				</div>
 				<Link to="/" className="bg-[#EDFAF6] text-xl">
-                    <img className="h-9 md:h-12" src={logo} alt="" />    
+                    <img className="h-9 md:h-10 lg:h-12" src={logo} alt="" />    
                 </Link>
 			</div>
 			<div className="navbar-center hidden lg:flex">

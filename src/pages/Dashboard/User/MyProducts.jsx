@@ -21,18 +21,17 @@ const MyProducts = () => {
         <div>
             <SectionTitle heading={`${user.displayName}'s Products`} subHeading="See all of the products you have added here so far!"></SectionTitle>
                        
-            <div className="overflow-x-auto px-28">
+            <div className="overflow-x-auto lg:px-28">
                 <table className="table">
                     {/* head */}
                     <thead>
-                    <tr>
-                        <th>Product Photo</th>
-                        <th>Name</th>
-                        <th>Upvotes</th>
-                        
-                        <th>Status</th>
-                        <th>Update</th>
-                        <th>Delete</th>
+                    <tr className="text-center">
+                        <th className="p-0 text-wrap">Product Photo</th>
+                        <th className="p-0">Name</th>
+                        <th className="p-0">Upvotes</th>
+                        <th className="p-0">Status</th>
+                        <th className="p-0">Update</th>
+                        <th className="p-0">Delete</th>
                     </tr>
                     </thead>
                     <tbody>

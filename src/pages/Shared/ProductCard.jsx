@@ -53,18 +53,18 @@ const ProductCard = ({product}) => {
 
     <div className="card card-side relative flex flex-col md:flex-row w-fit bg-[#EDFAF6] shadow-xl">
         <ToastContainer />
-        <figure className="p-6 mx-auto max-w-[250px] max-h-[250px] md:w-2/3 md:min-h-[360px]">
-            <img className="max-h-[250px] max-w-[250px] md:max-w-72 rounded-3xl" src={product_image} alt="Movie"/>
+        <figure className="p-6 md:px-2 md:py-0 mx-auto max-w-[250px] max-h-[250px] md:max-w-[320px] lg:w-2/3 md: lg:min-h-[360px]">
+            <img className="max-h-[250px] max-w-[250px] md:max-w-[320px] lg:max-w-72 rounded-3xl" src={product_image} alt="Movie"/>
         </figure>
         <div className="card-body md:my-auto">
         <div className="flex">
             <h2 className="card-title font-bold text-xl md:text-2xl mb-2"><Link to={`/product/${_id}`}>{product_name}</Link></h2>
-            <div className="card-actions top-80 right-2 md:right-8 md:top-14 absolute justify-end border border-[#98fbdd] rounded-xl py-1 px-2 lg:p-2  w-fit ">
+            <div className="card-actions top-80 right-2 md:right-2 lg:right-8 md:top-7 lg:top-14  absolute justify-end border border-[#98fbdd] rounded-xl py-1 px-2 lg:p-2  w-fit ">
                 <div className="flex gap-2 justify-center items-center">
                     {/* if there is user check if user is product owner */}
                     {user?
                         <button onClick={handleVote} id="upvote_btn" className={` ${user.email===owner_email? 'disabled' : ''}`} >
-                            <BiSolidUpArrow className={`text-base md:text-2xl  ${user.email===owner_email? '':'hover:text-[#98fbdd]'} `}></BiSolidUpArrow>
+                            <BiSolidUpArrow className={`text-base md:text-xl lg:text-2xl  ${user.email===owner_email? '':'hover:text-[#98fbdd]'} `}></BiSolidUpArrow>
                         </button>
                     :
                     // user is null so redirect to login page
@@ -78,10 +78,10 @@ const ProductCard = ({product}) => {
         </div>
             <div className="flex gap-4  flex-wrap">
             {
-                product_tags.map(tag=><span key={_id} className="grid grid-cols-1 w-fit bg-[#98fbdd] font-semibold text-sm md:text-base rounded-xl shadow-md py-1 px-2 md:px-3">{tag}</span>)
+                product_tags.map(tag=><span key={_id} className="grid grid-cols-1 w-fit bg-[#98fbdd] font-semibold text-sm md:text-base rounded-xl shadow-md py-1 px-2  lg:px-3">{tag}</span>)
             }
             </div>
-            <div className="card-actions hidden top-80 right-2 md:right-8 md:top-14 absolute justify-end border border-[#98fbdd] rounded-xl p-0 md:p-2  w-fit ">
+            <div className="card-actions hidden top-80 right-2 md:right-2 lg:right-8 md:top-10 lg:top-14 absolute justify-end border border-[#98fbdd] rounded-xl p-0 md:p-2  w-fit ">
                 <div className="flex gap-2 justify-center items-center">
                     {/* if there is user check if user is product owner */}
                     {user?

@@ -99,8 +99,8 @@ const ProductsPagination = () => {
             <SectionTitle heading="All Products" subHeading="Check out all of our products"></SectionTitle>
 
             {/* SEARCH BY TAGS */}
-            <div className="w-1/4 flex flex-row gap-5 pl-0 lg:pl-16">
-                    <form onSubmit={handleSearch} className="flex gap-1 mb-10">
+            <div className="w-1/4 flex flex-row gap-5 pl-0 lg:pl-16 md:mx-auto">
+                    <form onSubmit={handleSearch} className="flex gap-1 mb-10 mx-auto">
                         <div className="form-control">
                             <label className="input input-bordered w-fit flex items-center gap-4">
                                 <input onChange={ e =>{
@@ -123,7 +123,7 @@ const ProductsPagination = () => {
                 </div>
 
             {/* ALL PRODUCTS DATA */}
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:p-10'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:p-6 lg:p-10'>
                 {products.map(product => (
                     <ProductCard key={product._id} product={product} />
                 ))}
