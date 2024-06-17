@@ -99,10 +99,10 @@ const ProductsPagination = () => {
             <SectionTitle heading="All Products" subHeading="Check out all of our products"></SectionTitle>
 
             {/* SEARCH BY TAGS */}
-            <div className="w-1/4 flex flex-row gap-5 mx-auto pl-16">
-                    <form onSubmit={handleSearch}>
+            <div className="w-1/4 flex flex-row gap-5 pl-0 lg:pl-16">
+                    <form onSubmit={handleSearch} className="flex gap-1 mb-10">
                         <div className="form-control">
-                            <label className="input input-bordered flex items-center gap-2">
+                            <label className="input input-bordered w-fit flex items-center gap-4">
                                 <input onChange={ e =>{
                                                     setSearchText(e.target.value);
                                                     // console.log(e.target.value);
@@ -117,20 +117,20 @@ const ProductsPagination = () => {
 
                         <div className="form-control">
                             {/* <Link to={`/all-products?page=${currentPage}&size=${itemsPerPage}/search/${searchText}`}><button className="btn bg-[#b6f8e4] text-black hover:bg-[#98fbdd] ">Search</button></Link> */}
-                            <button onClick={()=>{setSearchLoad(searchLoad+1)}} className="btn bg-[#b6f8e4] text-black hover:bg-[#98fbdd] ">Search</button>
+                            <button onClick={()=>{setSearchLoad(searchLoad+1)}} className="btn bg-[#b6f8e4] px-2 w-fit text-black hover:bg-[#98fbdd] ">Search</button>
                         </div>
                     </form>
                 </div>
 
             {/* ALL PRODUCTS DATA */}
-            <div className='grid grid-cols-3 gap-6 p-10'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:p-10'>
                 {products.map(product => (
                     <ProductCard key={product._id} product={product} />
                 ))}
             </div>
 
             {/* PAGINATION */}
-            <div className="px-10 py-6 pagination text-center ">
+            <div className="px-2 md:px-10 py-6 pagination text-center ">
                 <button onClick={handlePrevPage} className="join-item btn btn-outline mr-8 align-middle"><IoIosArrowBack /></button>
                 {
                     pages.map(page=> <button
