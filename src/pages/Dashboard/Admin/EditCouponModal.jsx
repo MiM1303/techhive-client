@@ -56,7 +56,7 @@ const EditCouponModal = ({currentCoupon, refetch}) => {
                             <span className="label-text">Expiry Date</span>
                     </label>
                     <label className="input input-bordered flex items-center gap-2">
-                        <input type="date" {...register("expiry_date", { required: true })} defaultValue={expiry_date} placeholder="Expiry Date" />
+                        <input type="date" {...register("expiry_date", { required: false })} defaultValue={expiry_date} placeholder="Expiry Date" />
                     </label>
                 </div>
                 {/* coupon code description */}

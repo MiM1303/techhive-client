@@ -9,6 +9,9 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import useAdmin from "../hooks/useAdmin";
 import { TbLogout } from "react-icons/tb";
+import { FaUsers } from "react-icons/fa";
+import { FcStatistics } from "react-icons/fc";
+import { BiSolidCoupon } from "react-icons/bi";
 
 
 const Dashboard = () => {
@@ -54,9 +57,9 @@ const Dashboard = () => {
                     {
                         // ADMIN
                         userData.role==='Admin'? <>
-                        <li className="px-4"><NavLink to="/dashboard/manage-users" className="flex gap-5"><FaRegListAlt className="text-xl"/><span className="text-lg">Manage Users</span></NavLink></li>
-                        <li className="px-4"><NavLink to="/dashboard/manage-coupons" className="flex gap-5"><FaRegListAlt className="text-xl"/><span className="text-lg">Manage Coupons</span></NavLink></li>
-                        <li className="px-4"><NavLink to="/dashboard/statistics" className="flex gap-5"><FaRegListAlt className="text-xl"/><span className="text-lg">Statistics</span></NavLink></li>
+                        <li className="px-4"><NavLink to="/dashboard/manage-users" className="flex gap-5"><FaUsers className="text-2xl"/><span className="text-lg">Manage Users</span></NavLink></li>
+                        <li className="px-4"><NavLink to="/dashboard/manage-coupons" className="flex gap-5"><BiSolidCoupon className="text-2xl"/><span className="text-lg">Manage Coupons</span></NavLink></li>
+                        <li className="px-4"><NavLink to="/dashboard/statistics" className="flex gap-5"><FcStatistics className="text-2xl"/><span className="text-lg">Statistics</span></NavLink></li>
                         </>
                         :
                         <>

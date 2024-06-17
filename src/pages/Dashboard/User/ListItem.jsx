@@ -7,7 +7,7 @@ import "../User/UserDashboard.css"
 
 
 
-const ListItem = ({product, products, setProducts }) => {
+const  ListItem = ({product, products, setProducts }) => {
     const {_id, product_name, product_image, upvote_count, status} = product;
     const {user} = useContext(AuthContext);
     const userEmail = user.email;
@@ -35,7 +35,7 @@ const ListItem = ({product, products, setProducts }) => {
                     {
                         Swal.fire({
                             title: "Deleted!",
-                            text: "The spot has been deleted!",
+                            text: "The product has been deleted!",
                             icon: "success"
                           });
                         setProducts(products.filter(sp=>sp._id!==_id)); 
@@ -47,7 +47,7 @@ const ListItem = ({product, products, setProducts }) => {
     return (
         <tr >
             {/* image */}
-            <td className="px-0 py-2">
+            <td className="px-0  py-6 lg:text-center">
             <div className="flex items-center justify-center gap-3 mx-auto">
                 <div className="avatar">
                 <div className="mask mask-squircle  w-8 h-8 lg:w-16 lg:h-16">
@@ -61,20 +61,20 @@ const ListItem = ({product, products, setProducts }) => {
             </div>
             </td>
             {/* Product Name */}
-            <td className="p-0 text-center">{product_name}</td>
+            <td className="p-0 text-center py-6 lg:text-center">{product_name}</td>
             {/* upvotes */}
-            <td className="p-0 text-center">
+            <td className="p-0 text-center py-6 lg:text-center">
                 <div className="lg:pl-8">{upvote_count.length}</div>
             </td>
             {/*  */}
             
-            <td className="p-0">{status} </td>
-            <th className="text-xl text-warning p-0">
-                <Link to={`/update-product/${_id}`}>
+            <td className="p-0 py-6 lg:text-center">{status} </td>
+            <th className="text-xl py-6 text-warning p-0 lg:text-center">
+                <Link to={`update-product/${_id}`}>
                     <button className="btn btn-ghost btn-xs"><MdModeEdit className="text-lg lg:text-3xl text-warning"/></button>
                 </Link>
             </th>
-            <th className="text-xl text-red-600 p-0">
+            <th className="text-xl py-6 text-red-600 p-0 lg:text-center">
             <button onClick={()=>handleDelete(_id)} className="btn btn-ghost btn-xs"><MdDelete className="text-lg lg:text-3xl text-error"/></button>
             </th>
         </tr>

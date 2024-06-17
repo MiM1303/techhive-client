@@ -26,12 +26,12 @@ const MyProducts = () => {
                     {/* head */}
                     <thead>
                     <tr className="text-center">
-                        <th className="p-0 text-wrap">Product Photo</th>
-                        <th className="p-0">Name</th>
-                        <th className="p-0">Upvotes</th>
-                        <th className="p-0">Status</th>
-                        <th className="p-0">Update</th>
-                        <th className="p-0">Delete</th>
+                        <th className="p-0 md:px-10 py-5 lg:px-20 text-wrap lg:text-nowrap">Product Photo</th>
+                        <th className="p-0 md:px-10 py-5 lg:px-20">Name</th>
+                        <th className="p-0 md:px-10 py-5 lg:px-20">Upvotes</th>
+                        <th className="p-0 md:px-10 py-5 lg:px-20">Status</th>
+                        <th className="p-0 md:px-10 py-5 lg:px-20">Update</th>
+                        <th className="p-0 md:px-10 py-5 lg:px-20">Delete</th>
                     </tr>
                     </thead>
                     <tbody>

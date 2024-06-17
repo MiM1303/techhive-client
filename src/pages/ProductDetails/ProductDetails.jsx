@@ -196,11 +196,13 @@ const ProductDetails = () => {
                         <div className="card shrink-0  shadow-2xl bg-[#EDFAF6] md:w-3/4">
                             <form onSubmit={handleSubmit(onSubmit)} className=" card-body rounded-xl  md:p-6 bg-[#EDFAF6]">
                                 {/* disabled username and image */}
-                                <input type="image" src={`${user.photoURL}`} className="w-14 rounded-full" alt="" disabled/>
-                                <label className="label">
+                                <div className="flex gap-10 items-center justify-center">
+                                    <input type="image" src={`${user.photoURL}`} className="w-14 rounded-full" alt="" disabled/>
+                                    <input type="text" placeholder={`${user.displayName}`} className="input input-bordered w-full text-black" disabled />
+                                </div>
+                                {/* <label className="label">
                                         <span className="label-text">Your Name</span>
-                                </label>
-                                <input type="text" placeholder={`${user.displayName}`} className="input input-bordered w-full text-black" disabled />
+                                </label> */}
                                 <div className="form-control mb-3">
                                     <label className="label">
                                         <span className="label-text">Review</span>

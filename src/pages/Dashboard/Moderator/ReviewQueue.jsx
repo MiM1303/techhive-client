@@ -87,8 +87,8 @@ const ReviewQueue = () => {
 
     // REJECT PRODUCT
     const handleReject = (id, product) => {
-        console.log('accepting product');
-        if(product.status==='accepted'){
+        // console.log('accepting product');
+        if(product.status==='rejected'){
             toast.error(`${product.product_name} is already rejected!`);
         }
         else{
