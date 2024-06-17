@@ -65,11 +65,11 @@ const ManageUsers = () => {
                     {/* head */}
                     <thead>
                     <tr>
-                        <th className="px-1 md:px-6 text-center text-wrap">User Name</th>
-                        <th className="px-1 md:px-6 text-center text-wrap">User Email</th>
-                        <th className="px-1 md:px-6 text-center">Role</th>
-                        <th className="px-1 md:px-6 text-center text-wrap">Make Moderator</th>
-                        <th className="px-1 md:px-6 text-center text-wrap">Make Admin</th>
+                        <th className="px-1 md:px-6 lg:px-10 text-center lg:text-left text-wrap">User Name</th>
+                        <th className="px-1 md:px-6 lg:px-10 text-center lg:text-left text-wrap">User Email</th>
+                        <th className="px-1 md:px-6 lg:px-10 text-center lg:text-left">Role</th>
+                        <th className="px-1 md:px-6 lg:px-10 text-center lg:text-left text-wrap">Make Moderator</th>
+                        <th className="px-1 md:px-6 lg:px-10 text-center lg:text-left text-wrap">Make Admin</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -86,19 +86,19 @@ const ManageUsers = () => {
                     {
                         users.map(user=> <tr key={user._id}>       
                             {/* User Name */}
-                            <td className="px-0 text-center">{user.user_name}</td>
+                            <td className="px-10 text-center lg:text-left">{user.user_name}</td>
                             {/* User Email */}
-                            <td className="px-0 text-center ">{user.user_email}</td>
+                            <td className="px-10 text-center  lg:text-left">{user.user_email}</td>
                             {/* Role */}
-                            <td className="px-0 text-center">{user.role}</td>
+                            <td className="px-10 text-center lg:text-left">{user.role}</td>
                             {/* Make Moderator Button */}
-                            <th className="text-xl px-0 text-center text-warning text-center lg:pr-28">
+                            <th className="text-xl px-10 text-center text-warning ">
                                 {/* <Link to={`/update-product/${_id}`}> */}
                                     <button onClick={()=>{handleRoleUpdate("Moderator", user)}} className="btn btn-ghost btn-xs"><FaUserShield className="text-lg lg:text-3xl text-warning"/></button>
                                 {/* </Link> */}
                             </th>
                             {/* Make Admin Button */}
-                            <th className="text-xl px-0 text-center text-red-600 text-center lg:pr-20">
+                            <th className="text-xl px-10  text-red-600 text-center ">
                             <button onClick={()=>{handleRoleUpdate("Admin", user)}} className="btn btn-ghost btn-xs"><RiAdminFill className="text-lg lg:text-3xl text-error"/></button>
                             </th>
                         </tr>)

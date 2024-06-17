@@ -57,16 +57,16 @@ const ReportedContents = () => {
     return (
         <div>
             <div>
-            <SectionTitle heading="Products Review Queue" subHeading=""></SectionTitle>
+            <SectionTitle heading="Reported Contents" subHeading="Review reported contents below and decide what to do with them!"></SectionTitle>
             <ToastContainer/>
             <div className="overflow-x-auto lg:px-28">
                 <table className="table table-zebra">
                     {/* head */}
                     <thead>
                     <tr>
-                        <th className="px-1 md:px-6 text-center">Product Name</th>
-                        <th className="px-1 md:px-6 text-center">View Details</th>
-                        <th className="px-1 md:px-6 text-center">Reject</th>
+                        <th className="px-1 lg:pb-8 md:px-6 text-center">Product Name</th>
+                        <th className="px-1 lg:pb-8 md:px-6 text-center">View Details</th>
+                        <th className="px-1 lg:pb-8 md:px-6 text-center">Reject</th>
                     </tr>
                     </thead>
                     <tbody className="space-y-20">
@@ -75,10 +75,10 @@ const ReportedContents = () => {
                     {
                         products.map(product=> <tr className="" key={product._id}>       
                             {/* Product Name */}
-                            <td className=" px-0 text-center">{product.product_name}</td>
+                            <td className=" text-center px-0 lg:py-6">{product.product_name}</td>
 
                             {/* View Details */}
-                            <th className="text-center px-0">
+                            <th className="text-center px-0 lg:py-6">
                                 <Link to={`/product/${product._id}`}>
                                     <FcViewDetails className="mx-auto"/>
                                 </Link>
@@ -86,7 +86,7 @@ const ReportedContents = () => {
                                                          
 
                             {/* Delete Product */}
-                            <th className="text-center px-0">
+                            <th className="text-center px-0 lg:py-6">
                                     <TiDelete onClick={()=>handleDelete(product._id)}  className="text-red-400 mx-auto"/>                           
                             </th>
                         </tr>)

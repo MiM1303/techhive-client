@@ -40,7 +40,7 @@ const Trending = () => {
                                 {
                                     coupons.map(coupon=><div key={coupon._id} className="relative text-blue-600" >
                                         <img className="bg-center image-container bg-contain z-2 " src={largebg} />
-                                        <div className="absolute text-white text-center top-6 md:top-14 md:right-[300px] lg:top-20 right-20 lg:right-60 z-10 space-y-2 md:space-y-3 lg:space-y-10">
+                                        <div className="absolute text-white text-center top-6 md:top-14 md:right-[300px] lg:top-12 right-20 lg:right-60 z-10 space-y-2 md:space-y-3 lg:space-y-10">
                                             <p className="text-lg md:text-xl lg:text-4xl font-semibold">Use Coupon Code</p>
                                             <p className="text-2xl md:text-4xl lg:text-7xl  font-bold">{coupon.coupon_code}</p>
                                             <p className="text-base md:text-lg lg:text-2xl font-semibold">To Get <span className='font-bold md:text-2xl text-xl'>${coupon.discount_amount}</span> off!</p>

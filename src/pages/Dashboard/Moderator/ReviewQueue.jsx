@@ -118,11 +118,11 @@ const ReviewQueue = () => {
                     {/* head */}
                     <thead>
                     <tr>
-                        <th className="px-1 md:px-6 text-center">Product Name</th>
-                        <th className="px-1 md:px-6 text-center">View Details</th>
-                        <th className="px-1 md:px-6 text-center">Feature</th>
-                        <th className="px-1 md:px-6 text-center">Accept</th>
-                        <th className="px-1 md:px-6 text-center">Reject</th>
+                        <th className="px-1 lg:pb-8 md:px-6 text-center">Product Name</th>
+                        <th className="px-1 lg:pb-8 md:px-6 text-center">View Details</th>
+                        <th className="px-1 lg:pb-8 md:px-6 text-center">Feature</th>
+                        <th className="px-1 lg:pb-8 md:px-6 text-center">Accept</th>
+                        <th className="px-1 lg:pb-8 md:px-6 text-center">Reject</th>
                     </tr>
                     </thead>
                     <tbody className="space-y-20">
@@ -131,17 +131,17 @@ const ReviewQueue = () => {
                     {
                         products.map(product=> <tr className="" key={product._id}>       
                             {/* Product Name */}
-                            <td className="text-center px-0">{product.product_name}</td>
+                            <td className="text-center px-0 lg:py-6">{product.product_name}</td>
 
                             {/* View Details */}
-                            <th className="text-center px-0">
+                            <th className="text-center px-0 lg:py-6">
                                 <Link to={`/product/${product._id}`}>
                                     <FcViewDetails className="mx-auto"/>
                                 </Link>
                             </th>
                             
                             {/* Make Featured */}
-                            <th className="text-center px-0">
+                            <th className="text-center px-0 lg:py-6">
                                 {
                                     product.featured===false?
                                     <FaStar onClick={()=>handleMakeFeatured(product._id, product)} className="text-yellow-400 mx-auto"/>
@@ -152,7 +152,7 @@ const ReviewQueue = () => {
                             </th>
 
                             {/* Accept */}
-                            <th className="text-center px-0">
+                            <th className="text-center px-0 lg:py-6">
                                 {
                                     product.status!=="accepted"?
                                     <TiTick onClick={()=>handleAccept(product._id, product)} className="text-green-400 mx-auto"/>
@@ -163,7 +163,7 @@ const ReviewQueue = () => {
                                 
 
                             {/* Reject */}
-                            <th className="text-center px-0">
+                            <th className="text-center px-0 lg:py-6">
                                 {
                                     product.status!=="rejected"?
                                     <ImCross onClick={()=>handleReject(product._id, product)} className="text-red-400 mx-auto"/>
