@@ -13,6 +13,7 @@ const AuthProvider = ({children}) => {
     const [loading, setLoading] = useState(true);
     const [voted, setVoted] = useState(false);
     const [subscriptionCost, setSubscriptionCost] = useState(0);
+    const [discountAmount, setDiscountAmount] = useState('');
     const googleProvider = new GoogleAuthProvider();
     const axiosPublic = useAxiosPublic();
 
@@ -91,7 +92,9 @@ const AuthProvider = ({children}) => {
         voted,
         setVoted,
         subscriptionCost, 
-        setSubscriptionCost
+        setSubscriptionCost,
+        discountAmount,
+        setDiscountAmount
     }
 
     return (

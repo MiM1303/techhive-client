@@ -14,7 +14,8 @@ import { Carousel } from 'react-responsive-carousel';
 
 
 const Trending = () => {
-    const [products, loading, setLoading] = useTrending();
+    const [trendingProducts, loading, setLoading] = useTrending();
+    console.log(trendingProducts);
     const [coupons, setCoupons] = useState([]);
     useEffect(()=>{
         fetch(`https://techhive-server.vercel.app/coupons`)
@@ -23,14 +24,14 @@ const Trending = () => {
             setCoupons(data);
             setLoading(false);
         })
-    })
+    }, [])
 
     return (
         <div>
             <div className="mb-24">
                 <SectionTitle heading="Trending Products" subHeading="Check out our most popular products voted by our users from our trending section to find your needed tech today!"></SectionTitle>
                 <div className="mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-11/12">
-                    {products.map(product=> <ProductCard key={product._id} product={product}></ProductCard>)}
+                    {trendingProducts.map(product=> <ProductCard key={product._id} product={product}></ProductCard>)}
                 </div>
                 <div>
                     <Link className="flex justify-center" to="/all-products"><button className="btn bg-[#b6f8e4] text-black hover:bg-[#98fbdd] font-bold text-base mt-12">Show All Products</button></Link>
