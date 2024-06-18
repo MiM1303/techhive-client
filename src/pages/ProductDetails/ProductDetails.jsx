@@ -16,11 +16,13 @@ import 'react-toastify/dist/ReactToastify.css';
 const ProductDetails = () => {
     const product = useLoaderData();
     const { _id, product_name, product_image, description, product_tags, upvote_count, external_links, owner_email, owner_name, owner_image, reported } = product;
+    const [upvoteCount, setUpvoteCount] = useState(upvote_count);
     const {user, loading, voted, setVoted} = useContext(AuthContext);
     // const [voted, setVoted] = useState(false);
     const navigate = useNavigate();
     const location = useLocation();
     const [action, setAction] = useState('');
+    
 
     // const [reviews] = useReviews(_id);
     const [productReviews, setProductReviews] = useState([])
@@ -64,9 +66,9 @@ const ProductDetails = () => {
         }
 
         // update upvote_count if used has not voted yet
-        if(!upvote_count.includes(user.email)){
-            // console.log('upvoted')
-            fetch(`https://techhive-server.vercel.app/products/upvote/${_id}`, {
+        if(!upvoteCount.includes(user.email)){
+            // upvote_count.push(user.email);
+            fetch(`https://techhive-server.vercel.app/products/upvote/${_id}?email=${user.email}`, {
                 method: "PATCH",
                 headers: {
                     'content-type': 'application/json'
@@ -75,7 +77,9 @@ const ProductDetails = () => {
             })
             .then(res=>res.json())
             .then(data=>{
+                setUpvoteCount([user.email, ...upvoteCount]);
                 // console.log(data);
+
             })
         }
         else{
@@ -95,6 +99,7 @@ const ProductDetails = () => {
             })
             .then(res=>res.json())
             .then(data=>{
+                toast.success(`${product_name} was reported!`);
                 // console.log(data);
             })
         
@@ -157,7 +162,7 @@ const ProductDetails = () => {
                             <h1 className="text-3xl md:text-5xl font-bold">{product_name}</h1>
                             <div className="flex  justify-center items-center mr-4">
                                 <div className="flex gap-2 justify-center items-center mr-4 bg-green-500  px-1 md:py-1 md:px-2 rounded-lg md:rounded-2xl">
-                                    <p className="text-lg font-bold">{upvote_count.length}</p>
+                                    <p className="text-lg font-bold">{upvoteCount.length}</p>
                                     {/* if there is user check if user is product owner */}
                                     {user?
                                         <button onClick={handleVote} id="upvote_btn" className={` ${user.email===owner_email? 'disabled' : ''}`} >

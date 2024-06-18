@@ -6,19 +6,30 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import { useQuery } from "@tanstack/react-query";
 
 const ReportedContents = () => {
 
     // GET PRODUCT DATA
     const [products, setProducts] = useState([]);
-    useEffect(()=>{
-        fetch(`https://techhive-server.vercel.app/reported-products`)
-        .then(res=>res.json())
-        .then(data=>{
-            setProducts(data);
+    // useEffect(()=>{
+    //     fetch(`https://techhive-server.vercel.app/reported-products`)
+    //     .then(res=>res.json())
+    //     .then(data=>{
+    //         setProducts(data);
             
+    //     })
+    // }, [products])
+    const axiosSecure = useAxiosSecure();
+    const { data: reportedProducts = [], refetch } = useQuery({
+            queryKey: ['reportedProducts'],
+            queryFn: async () => {
+                const res = await axiosSecure.get('/reported-products');
+                setProducts(res.data);
+                return res.data;
+            }
         })
-    }, [products])
 
     // DELETE PRODUCT
     const handleDelete = _id =>{
@@ -42,12 +53,13 @@ const ReportedContents = () => {
                     console.log(data);
                     if(data.deletedCount>0)
                     {
+                        refetch();
                         Swal.fire({
                             title: "Deleted!",
-                            text: "The spot has been deleted!",
+                            text: "The product has been deleted!",
                             icon: "success"
                           });
-                        setProducts(products.filter(sp=>sp._id!==_id)); 
+                        // setProducts(products.filter(sp=>sp._id!==_id)); 
                     }
                 })
             }

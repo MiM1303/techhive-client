@@ -25,13 +25,17 @@ const Update = () => {
     
     const [selected, setSelected] = useState([]);
     const [ product, setProduct ] = useState({});
+    const [imageURL, setImageURL] = useState('');
     useEffect(()=>{
         fetch(`https://techhive-server.vercel.app/products/${id}`)
         .then(res=>res.json())
         .then(data=>{
             setProduct(data);
             setSelected(data.product_tags);
+            setImageURL(data.product_image);
             console.log('after setProduct', selected);
+            console.log(data, product);
+            
             // const tagsArray = data.product_tags.split(','); // Split tags string to array
             // setSelected(tagsArray);
             // console.log('after data statements', data.product_tags, tagsArray);
@@ -43,8 +47,11 @@ const Update = () => {
     const onSubmit = (updatedProductInfo, event) =>{
         console.log('inside onsubmit call');
         event.preventDefault();
-        // console.log('updating', updatedProductInfo);
+        console.log('updating', updatedProductInfo);
         updatedProductInfo.product_tags = selected;
+        if(updatedProductInfo.product_image===""){
+            updatedProductInfo.product_image = imageURL;
+        }
 
         //send a data to the server
         fetch(`https://techhive-server.vercel.app/update-product/${product._id}`, {
@@ -102,7 +109,7 @@ const Update = () => {
                         </div>
                         <label className="input input-bordered flex items-center text-base md:text-xl h-16 gap-2">
                           
-                            <input type="text" className="grow p-1" placeholder="Spot Name" defaultValue={product.product_name} {...register("product_name", { required: false })}/>
+                            <input type="text" className="grow p-1" defaultValue={product.product_name} {...register("product_name", { required: false })}/>
                         </label>
                     </div>
                     
@@ -139,7 +146,7 @@ const Update = () => {
                         </div>
                         <label className="input input-bordered flex items-center text-base md:text-xl h-16 gap-2">
                         
-                            <input type="text" className="grow p-1" placeholder="" defaultValue={product.external_links} {...register("external_links", { required: false })}/>
+                            <input type="text" className="grow p-1" defaultValue={product.external_links} {...register("external_links", { required: false })}/>
                         </label>
                     </div>
                     

@@ -11,6 +11,8 @@ import "../Moderator/Moderator.css"
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import { useQuery } from "@tanstack/react-query";
 
 const ReviewQueue = () => {
 
@@ -25,14 +27,24 @@ const ReviewQueue = () => {
     // })
 
     const [products, setProducts] = useState([]);
-    useEffect(()=>{
-        fetch(`https://techhive-server.vercel.app/products-review-queue`)
-        .then(res=>res.json())
-        .then(data=>{
-            setProducts(data);
+    // useEffect(()=>{
+    //     fetch(`https://techhive-server.vercel.app/products-review-queue`)
+    //     .then(res=>res.json())
+    //     .then(data=>{
+    //         setProducts(data);
             
+    //     })
+    // }, [products])
+
+    const axiosSecure = useAxiosSecure();
+    const { data: reviewProducts = [], refetch } = useQuery({
+            queryKey: ['reviewProducts'],
+            queryFn: async () => {
+                const res = await axiosSecure.get('/products-review-queue');
+                setProducts(res.data);
+                return res.data;
+            }
         })
-    }, [products])
 
     //  MAKE FEATURED
     const handleMakeFeatured = (id, product) =>{
@@ -53,6 +65,7 @@ const ReviewQueue = () => {
                 console.log(data);
                 setProducts(products);
                 if(data.modifiedCount>0){
+                    refetch();
                     toast.success(`${product.product_name} has been featured!`)
                 }
             })
@@ -78,6 +91,7 @@ const ReviewQueue = () => {
                     // console.log(data);
                     setProducts(products);
                     if(data.modifiedCount>0){
+                        refetch();
                         toast.success(`${product.product_name} has been accepted!`)
                         }
                         })
@@ -103,6 +117,7 @@ const ReviewQueue = () => {
             .then(data=>{
                     setProducts(products);
                     if(data.modifiedCount>0){
+                        refetch();
                         toast.success(`${product.product_name} has been rejected!`)
                         }
                         })
@@ -129,7 +144,7 @@ const ReviewQueue = () => {
 
                 
                     {
-                        products.map(product=> <tr className="" key={product._id}>       
+                        reviewProducts.map(product=> <tr className="" key={product._id}>       
                             {/* Product Name */}
                             <td className="text-center px-0 lg:py-6">{product.product_name}</td>
 

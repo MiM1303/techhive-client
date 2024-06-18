@@ -12,12 +12,14 @@ import { TbLogout } from "react-icons/tb";
 import { FaUsers } from "react-icons/fa";
 import { FcStatistics } from "react-icons/fc";
 import { BiSolidCoupon } from "react-icons/bi";
+import useModerator from "../hooks/useModerator";
 
 
 const Dashboard = () => {
 
     const {user, logOut, setLoading} = useContext(AuthContext);
     const [isAdmin] = useAdmin();
+    const [isMod] = useModerator();
 
     const [userData, setUserData] = useState([]);
     useEffect(() => {
@@ -25,7 +27,6 @@ const Dashboard = () => {
         .then((res) => res.json())
         .then((data) => {
             setUserData(data);
-            setLoading(false);
         });
     }, []);
 
