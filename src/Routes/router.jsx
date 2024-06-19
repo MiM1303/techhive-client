@@ -86,7 +86,8 @@ export const router = createBrowserRouter([
         {
           path: `my-products/update-product/:id`,
           element: <PrivateRoute><Update></Update></PrivateRoute>,
-          // loader: ({params}) => fetch(`https://techhive-server.vercel.app/add-product/${params.id}`)
+          loader: ({params}) => fetch(`https://techhive-server.vercel.app/products/${params.id}`)
+          // loader: ({params}) => fetch(`https://meraki-server.vercel.app/my-foods/update/${params.id}`)
         },
         {
           path: "manage-users",
