@@ -12,6 +12,9 @@ const EditCouponModal = ({currentCoupon, refetch}) => {
 
     const onSubmit = async(data) => {
         console.log(data);
+        if(data.expiry_date===''){
+            data.expiry_date = expiry_date;
+        }
         const couponRes = await axiosSecure.put(`/coupons/${_id}`, data);
             console.log(couponRes.data)
             if(couponRes.data.modifiedCount > 0){

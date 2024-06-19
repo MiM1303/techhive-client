@@ -102,7 +102,7 @@ const MyProfile = () => {
             </tr> */}
             {/* row 4 */}
             {userData.membership_status === "Verified" ? (
-              <tr>
+              <tr className="bg-[#EDFAF6]">
                 <th className="md:p-10 text-base md:text-lg">Membership Subscription Status:</th>
                 <td className=" text-base">{userData.membership_status}</td>
               </tr>
