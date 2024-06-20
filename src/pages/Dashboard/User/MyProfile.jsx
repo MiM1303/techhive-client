@@ -15,7 +15,7 @@ const MyProfile = () => {
   // const [coupons, setCoupons] = useState([]);
   const coupons = useLoaderData();
   const navigate = useNavigate();
-
+  console.log(user);
   useEffect(() => {
     fetch(`https://techhive-server.vercel.app/users/${user.email}`)
       .then((res) => res.json())

@@ -65,8 +65,18 @@ const ProductDetails = () => {
             navigate('/login', { state: { from: location } })
         }
 
+         // do not let vote is user is owner
+         if(user.email===owner_email){
+            toast.error("You are the owner of this product");
+            return;
+        }
+        // do not let vote is user has already upvoted this product
+        else if(upvoteCount.includes(user.email)){
+            toast.error('You have already upvoted this product');
+            return;
+        }
         // update upvote_count if used has not voted yet
-        if(!upvoteCount.includes(user.email)){
+        else{
             // upvote_count.push(user.email);
             fetch(`https://techhive-server.vercel.app/products/upvote/${_id}?email=${user.email}`, {
                 method: "PATCH",
@@ -81,9 +91,6 @@ const ProductDetails = () => {
                 // console.log(data);
 
             })
-        }
-        else{
-            toast.error('You have already upvoted this product');
         }
     }
 

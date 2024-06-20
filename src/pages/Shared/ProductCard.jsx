@@ -1,18 +1,21 @@
 import { useContext, useEffect, useState } from "react";
 import { BiSolidUpArrow } from "react-icons/bi";
-import { AuthContext } from "../../providers/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { AuthContext } from "../../providers/AuthProvider";
 
 
 const ProductCard = ({product}) => {
+    const {user, loading} = useContext(AuthContext);
     const {_id, product_name, product_image, product_tags, upvote_count, owner_email} = product;
     const [upvoteCount, setUpvoteCount] = useState(upvote_count);
-    const {user, loading, voted, setVoted} = useContext(AuthContext);
     // const [voted, setVoted] = useState(false);
     const navigate = useNavigate();
     const location = useLocation();
+    // console.log('user', user);
+    // console.log(product_name, "user.email===owner_email", user.email===owner_email);
+    // console.log(product_name, "!upvoteCount.includes(user.email)", !upvoteCount.includes(user.email))
 
     // console.log(user);
     if(loading){
@@ -27,8 +30,18 @@ const ProductCard = ({product}) => {
             navigate('/login', { state: { from: location } })
         }
 
+        // do not let vote is user is owner
+        if(user.email===owner_email){
+            toast.error("You are the owner of this product");
+            return;
+        }
+        // do not let vote is user has already upvoted this product
+        else if(upvoteCount.includes(user.email)){
+            toast.error('You have already upvoted this product');
+            return;
+        }
         // update upvote_count if used has not voted yet
-        if(!upvoteCount.includes(user.email)){
+        else{
             // upvote_count.push(user.email);
             fetch(`https://techhive-server.vercel.app/products/upvote/${_id}?email=${user.email}`, {
                 method: "PATCH",
@@ -44,9 +57,7 @@ const ProductCard = ({product}) => {
 
             })
         }
-        else{
-            toast.error('You have already upvoted this product');
-        }
+        
     }
 
   return (
