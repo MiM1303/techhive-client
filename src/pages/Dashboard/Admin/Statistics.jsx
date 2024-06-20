@@ -65,15 +65,15 @@ const Statistics = () => {
     return (
         <div>
             <SectionTitle heading="Website Statistics" subHeading="See the ratio of total products, users and reviews in a comprehensive manner as a pie chart!"></SectionTitle>
-            <div className="w-1/2 mx-auto">
-                    <PieChart width={400} height={400}>
+            <div className=" md:flex md:justify-center lg:w-1/2 mx-auto">
+                    <PieChart width={380} height={380}>
                         <Pie
                             data={pieChartData}
                             cx="50%"
                             cy="50%"
                             labelLine={false}
                             label={renderCustomizedLabel}
-                            outerRadius={150}
+                            outerRadius={140}
                             fill="#8884d8"
                             dataKey="value"
                         >

@@ -65,10 +65,11 @@ const Registration = () => {
                 
                 <div className="hero mt-40 mb-32">
                     <div className="hero-content flex-col  md:w-full lg:w-[800px] h-[600px]">
-                        <div className="text-center">
-                            <h1 className="text-5xl font-bold mb-3">Register now!</h1>
+                        
+                        <div className="card pt-10  shrink-0 w-3/4 shadow-2xl bg-[#EDFAF6]">
+                        <div className="text-center ">
+                            <h1 className="text-2xl md:text-3xl lg:text-5xl font-bold mb-5">Register now!</h1>
                         </div>
-                        <div className="card shrink-0 w-3/4 shadow-2xl bg-[#EDFAF6]">
                             <form onSubmit={handleSubmit(onSubmit)} className="card-body p-6">
                                 {/* USERNAME */}
                                 <div className="form-control mb-3">
@@ -131,7 +132,7 @@ const Registration = () => {
                                     </label>
                                 </div>
                                 <div className="form-control mt-6">
-                                    <button className="btn bg-[#b6f8e4] button-styles text-lg hover:bg-[#98fbdd] text-black">Register</button>
+                                    <button className="btn bg-[#b6f8e4] button-styles text-base md:text-lg hover:bg-[#98fbdd] text-black">Register</button>
                                 </div>
                             </form>
                             <div className='mx-8 mb-8 text-center flex justify-center'>

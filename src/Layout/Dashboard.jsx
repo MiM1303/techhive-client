@@ -58,24 +58,24 @@ const Dashboard = () => {
                     {
                         // ADMIN
                         userData.role==='Admin'? <>
-                        <li className="px-4"><NavLink to="/dashboard/manage-users" className="flex gap-5"><FaUsers className="text-2xl"/><span className="text-lg">Manage Users</span></NavLink></li>
-                        <li className="px-4"><NavLink to="/dashboard/manage-coupons" className="flex gap-5"><BiSolidCoupon className="text-2xl"/><span className="text-lg">Manage Coupons</span></NavLink></li>
-                        <li className="px-4"><NavLink to="/dashboard/statistics" className="flex gap-5"><FcStatistics className="text-2xl"/><span className="text-lg">Statistics</span></NavLink></li>
+                        <li className="px-4"><NavLink to="/dashboard/manage-users" className="flex gap-5"><FaUsers className="text-xl md:text-2xl"/><span className="text-base md:text-lg">Manage Users</span></NavLink></li>
+                        <li className="px-4"><NavLink to="/dashboard/manage-coupons" className="flex gap-5"><BiSolidCoupon className="text-xl md:text-2xl"/><span className="text-base md:text-lg">Manage Coupons</span></NavLink></li>
+                        <li className="px-4"><NavLink to="/dashboard/statistics" className="flex gap-5"><FcStatistics className="text-xl md:text-2xl"/><span className="text-base md:text-lg">Statistics</span></NavLink></li>
                         </>
                         :
                         <>
                         {
                             // MODERATOR
                             userData.role==='Moderator'?<>
-                            <li className="px-4"><NavLink to="/dashboard/products-review-queue" className="flex gap-5"><FaRegListAlt className="text-xl"/><span className="text-lg">Product Review Queue</span></NavLink></li>
-                            <li className="px-4"><NavLink to="/dashboard/reported-products" className="flex gap-5"><FaRegListAlt className="text-xl"/><span className="text-lg">Reported Contents</span></NavLink></li>
+                            <li className="px-4"><NavLink to="/dashboard/products-review-queue" className="flex gap-5"><FaRegListAlt className="text-xl md:text-2xl"/><span className="text-base md:text-lg">Product Review Queue</span></NavLink></li>
+                            <li className="px-4"><NavLink to="/dashboard/reported-products" className="flex gap-5"><FaRegListAlt className="text-xl md:text-2xl"/><span className="text-base md:text-lg">Reported Contents</span></NavLink></li>
                             </>
                             :
                             <>
                                 {/* USER */}
-                                <li className="px-4 pt-8"><NavLink to="/dashboard/my-profile" className="flex gap-5 "><FaUser className="text-xl"/><span className="text-lg">My Profile</span></NavLink></li>
-                                <li className="px-4"><NavLink to="/dashboard/add-product" className="flex gap-5"><IoMdAdd className="text-xl"/><span className="text-lg">Add Product</span></NavLink></li>
-                                <li className="px-4"><NavLink to="/dashboard/my-products" className="flex gap-5"><FaRegListAlt className="text-xl"/><span className="text-lg">My Products</span></NavLink></li>
+                                <li className="px-4 pt-8"><NavLink to="/dashboard/my-profile" className="flex gap-5 "><FaUser className="text-xl md:text-2xl"/><span className="text-base md:text-lg">My Profile</span></NavLink></li>
+                                <li className="px-4"><NavLink to="/dashboard/add-product" className="flex gap-5"><IoMdAdd className="text-xl md:text-2xl"/><span className="text-base md:text-lg">Add Product</span></NavLink></li>
+                                <li className="px-4"><NavLink to="/dashboard/my-products" className="flex gap-5"><FaRegListAlt className="text-xl md:text-2xl"/><span className="text-base md:text-lg">My Products</span></NavLink></li>
                             </>
                         }
                         </>
@@ -85,9 +85,9 @@ const Dashboard = () => {
                 
                 {/* SHARED LINKS */}
                 <div className="divider px-6"></div>
-                <li className="px-4"><NavLink to="/" className="flex gap-5"><IoHome className="text-xl"/><span className="text-lg">Home</span></NavLink></li>
-                <li className="px-4"><NavLink to="/all-products" className="flex gap-5"><IoIosAlbums className="text-xl"/><span className="text-lg">Products</span></NavLink></li>
-                <li className="px-4 flex gap-5" onClick={handleLogOut}><span className="text-lg"><TbLogout className="text-2xl mr-2"/>Logout</span></li>
+                <li className="px-4"><NavLink to="/" className="flex gap-5"><IoHome className="text-xl md:text-2xl"/><span className="text-base md:text-lg">Home</span></NavLink></li>
+                <li className="px-4"><NavLink to="/all-products" className="flex gap-5"><IoIosAlbums className="text-xl md:text-2xl"/><span className="text-base md:text-lg">Products</span></NavLink></li>
+                <li className="px-4 flex gap-5" onClick={handleLogOut}><span className="text-base md:text-lg"><TbLogout className="text-2xl md:text-3xl mr-3 md:mr-2"/>Logout</span></li>
                 </ul>
             
             </div>

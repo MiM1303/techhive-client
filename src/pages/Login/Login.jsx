@@ -64,13 +64,13 @@ const Login = () => {
 
     return (
         <div>
-            <div className='flex lg:flex-row items-center justify-center mt-24'>
+            <div className='flex lg:flex-row items-center justify-center mt-10 md:mt-24'>
                 <div className="hero mt-16 lg:w-1/2 ">
                     <div className="hero-content  flex-col md:w-full lg:w-[800px] h-[600px] mb-2 lg:mb-44">
                         
                         <div className="card shrink-0 pt-10 shadow-2xl  bg-[#EDFAF6] w-3/4">
                         <div className="text-center ">
-                            <h1 className="text-5xl font-bold mb-5">Login now!</h1>
+                            <h1 className="text-2xl md:text-3xl lg:text-5xl font-bold mb-5">Login now!</h1>
                         </div>
                             <form onSubmit={handleSubmit(onSubmit)} className="card-body rounded-xl p-6  bg-[#EDFAF6]">
                                 {/* EMAIL */}
@@ -99,14 +99,14 @@ const Login = () => {
                                     </label>
                                 </div>
                                 <div className="form-control mt-6">
-                                    <button className="btn bg-[#b6f8e4] text-black button-styles hover:bg-[#98fbdd]  text-lg ">Login</button>
+                                    <button className="btn bg-[#b6f8e4] text-black button-styles hover:bg-[#98fbdd] text-base md:text-lg ">Login</button>
                                 </div>
                             </form>
                            <div className='flex flex-col md:flex-row lg:flex-row lg:gap-4 mx-auto bg-[#EDFAF6]'>
                                 <div className='mx-8 lg:mb-8 mb-4 justify-center  bg-[#EDFAF6]'>
-                                    <p className='text-center mb-2 text-lg font-semibold text-[#2e9c7b]'>Or Login With:</p>
+                                    <p className='text-center mb-2 text-base md:text-lg font-semibold text-[#2e9c7b]'>Or Login With:</p>
                                     <button onClick={handleGoogleLogin} className="btn text-lg  bg-[#EDFAF6] hover:bg-[#98fbdd] ">
-                                        <FcGoogle className='text-2xl'></FcGoogle>
+                                        <FcGoogle className='text-lg md:text-2xl'></FcGoogle>
                                         Google
                                     </button>
                                 </div>

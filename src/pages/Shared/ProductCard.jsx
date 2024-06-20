@@ -62,10 +62,10 @@ const ProductCard = ({product}) => {
 
   return (
 
-    <div className="card card-side relative flex flex-col md:flex-row w-fit bg-[#EDFAF6] shadow-xl">
+    <div className="card card-side mx-4 md:m-0 relative flex flex-col md:flex-row w-fit bg-[#EDFAF6] shadow-xl">
         <ToastContainer />
         <figure className="p-6 md:px-2 md:py-0 mx-auto max-w-[250px] max-h-[250px] md:max-w-[320px] lg:w-2/3 md: lg:min-h-[360px]">
-            <img className="max-h-[250px] max-w-[250px] md:max-w-[320px] lg:max-w-72 rounded-3xl" src={product_image} alt="Movie"/>
+            <img className="max-h-[150px] max-w-[150px] md:max-w-[320px] lg:max-w-72 rounded-3xl" src={product_image} alt="Movie"/>
         </figure>
         <div className="card-body md:my-auto">
         <div className="flex">

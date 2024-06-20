@@ -8,8 +8,8 @@ const Navbar = () => {
 	const {user, logOut} = useContext(AuthContext);
 	const axiosPublic = useAxiosPublic();
     const navOptions = <>
-        <li><Link to="/">Home</Link ></li>
-        <li><Link to="all-products">Products</Link ></li>
+        <li><Link to="/" className="text-base">Home</Link ></li>
+        <li><Link to="all-products" className="text-base">Products</Link ></li>
     </>
 
 	const handleLogOut = () => {
